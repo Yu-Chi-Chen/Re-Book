@@ -1,0 +1,284 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="第 1 页" id="RCAoNjRS01Z3lIfcbTOO">
+    <mxGraphModel dx="1407" dy="842" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-14" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;container=0;" value="買家" vertex="1">
+          <mxGeometry height="78" width="90" x="680" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-127" parent="iLEGEHv-uXXGgKctzIfk-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="location" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-128" parent="iLEGEHv-uXXGgKctzIfk-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-17" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="書籍" vertex="1">
+          <mxGeometry height="104" width="90" x="319" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-18" parent="iLEGEHv-uXXGgKctzIfk-17" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="bookStatus" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-19" parent="iLEGEHv-uXXGgKctzIfk-17" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="bookCondition" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-129" parent="iLEGEHv-uXXGgKctzIfk-17" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="price" vertex="1">
+          <mxGeometry height="26" width="90" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-20" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="書籍資訊" vertex="1">
+          <mxGeometry height="130" width="90" x="139" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-21" parent="iLEGEHv-uXXGgKctzIfk-20" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ISBN" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-22" parent="iLEGEHv-uXXGgKctzIfk-20" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="bookName" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-130" parent="iLEGEHv-uXXGgKctzIfk-20" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="author" vertex="1">
+          <mxGeometry height="26" width="90" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-131" parent="iLEGEHv-uXXGgKctzIfk-20" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="publisher" vertex="1">
+          <mxGeometry height="26" width="90" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-23" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="私訊" vertex="1">
+          <mxGeometry height="78" width="90" x="500" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-24" parent="iLEGEHv-uXXGgKctzIfk-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-25" parent="iLEGEHv-uXXGgKctzIfk-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-26" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="賣場" vertex="1">
+          <mxGeometry height="78" width="90" x="319" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-27" parent="iLEGEHv-uXXGgKctzIfk-26" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-28" parent="iLEGEHv-uXXGgKctzIfk-26" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-29" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="類別" vertex="1">
+          <mxGeometry height="78" width="90" x="319" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-30" parent="iLEGEHv-uXXGgKctzIfk-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="categoryName" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-31" parent="iLEGEHv-uXXGgKctzIfk-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-32" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="購物車" vertex="1">
+          <mxGeometry height="78" width="90" x="500" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-33" parent="iLEGEHv-uXXGgKctzIfk-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-34" parent="iLEGEHv-uXXGgKctzIfk-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-35" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="訂單" vertex="1">
+          <mxGeometry height="78" width="90" x="319" y="698" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-36" parent="iLEGEHv-uXXGgKctzIfk-35" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="orderStatus" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-37" parent="iLEGEHv-uXXGgKctzIfk-35" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-10" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" value="賣家" vertex="1">
+          <mxGeometry height="78" width="90" x="319" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-11" parent="iLEGEHv-uXXGgKctzIfk-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=1;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;movable=1;resizable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" value="location" vertex="1">
+          <mxGeometry height="26" width="90" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-39" parent="iLEGEHv-uXXGgKctzIfk-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=1;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;movable=1;resizable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="90" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-87" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-26" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;rounded=0;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="iLEGEHv-uXXGgKctzIfk-39" value="Manage">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="160" as="sourcePoint" />
+            <mxPoint x="410" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-88" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-87" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-10" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-89" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-87" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-2" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-90" edge="1" parent="1" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;rounded=0;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" value="Contain">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="363.52" y="360" as="sourcePoint" />
+            <mxPoint x="363.52" y="278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-91" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-90" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-10" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-92" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-90" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-2" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-93" edge="1" parent="1" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;rounded=0;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" value="Categorize">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="363.71" y="520" as="sourcePoint" />
+            <mxPoint x="363.71" y="438" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-94" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-93" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-10" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-95" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-93" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-2" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-96" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-35" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;rounded=0;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.493;entryY=1.015;entryDx=0;entryDy=0;entryPerimeter=0;" target="iLEGEHv-uXXGgKctzIfk-129" value="Contained-in">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="363.5" y="680" as="sourcePoint" />
+            <mxPoint x="364" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-97" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-96" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-10" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-98" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-96" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-2" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-99" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-33" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=12;startFill=0;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=0;" target="iLEGEHv-uXXGgKctzIfk-14" value="Owned-by">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="570" as="sourcePoint" />
+            <mxPoint x="670" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-100" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-99" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-101" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-99" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-102" edge="1" parent="1" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=12;startFill=0;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=0;" value="Contained-in">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="409" y="558.68" as="sourcePoint" />
+            <mxPoint x="499" y="558.68" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-103" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-102" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-104" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-102" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-105" edge="1" parent="1" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=12;startFill=0;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=0;" value="Describe">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="229" y="558.71" as="sourcePoint" />
+            <mxPoint x="319" y="558.71" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-106" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-105" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-107" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-105" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-108" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-14" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="iLEGEHv-uXXGgKctzIfk-24" value="Initiate">
+          <mxGeometry relative="1" x="-0.4231" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="480" y="360" as="sourcePoint" />
+            <mxPoint x="640" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-109" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-108" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-14" y="-26" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-110" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-108" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-111" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-11" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="iLEGEHv-uXXGgKctzIfk-23" value="Participate-in">
+          <mxGeometry relative="1" x="0.4553" y="5" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="320" y="150" as="sourcePoint" />
+            <mxPoint x="480" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-112" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-111" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="3" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-113" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-111" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-3" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-114" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-25" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="iLEGEHv-uXXGgKctzIfk-17" value="Related-to">
+          <mxGeometry relative="1" x="-0.4913" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="544" y="500" />
+              <mxPoint x="386" y="500" />
+            </Array>
+            <mxPoint x="280" y="420" as="sourcePoint" />
+            <mxPoint x="440" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-115" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-114" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="3" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-116" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-114" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="16" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-118" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-14" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="iLEGEHv-uXXGgKctzIfk-36" value="Create">
+          <mxGeometry relative="1" x="0.1716" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="180" y="530" as="sourcePoint" />
+            <mxPoint x="340" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-119" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-118" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-120" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-118" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="26" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
