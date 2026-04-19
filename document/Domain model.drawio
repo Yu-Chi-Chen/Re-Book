@@ -1,10 +1,10 @@
 <mxfile host="app.diagrams.net">
   <diagram name="第 1 页" id="RCAoNjRS01Z3lIfcbTOO">
-    <mxGraphModel dx="1407" dy="842" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-14" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;container=0;" value="買家" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-14" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;container=0;" value="Buyer" vertex="1">
           <mxGeometry height="78" width="90" x="680" y="520" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-127" parent="iLEGEHv-uXXGgKctzIfk-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="location" vertex="1">
@@ -13,7 +13,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-128" parent="iLEGEHv-uXXGgKctzIfk-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
           <mxGeometry height="26" width="90" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-17" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="書籍" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-17" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Book" vertex="1">
           <mxGeometry height="104" width="90" x="319" y="520" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-18" parent="iLEGEHv-uXXGgKctzIfk-17" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="bookStatus" vertex="1">
@@ -25,7 +25,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-129" parent="iLEGEHv-uXXGgKctzIfk-17" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="price" vertex="1">
           <mxGeometry height="26" width="90" y="78" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-20" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="書籍資訊" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-20" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="BookInfo" vertex="1">
           <mxGeometry height="130" width="90" x="139" y="520" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-21" parent="iLEGEHv-uXXGgKctzIfk-20" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ISBN" vertex="1">
@@ -40,7 +40,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-131" parent="iLEGEHv-uXXGgKctzIfk-20" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="publisher" vertex="1">
           <mxGeometry height="26" width="90" y="104" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-23" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="私訊" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-23" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Message" vertex="1">
           <mxGeometry height="78" width="90" x="500" y="200" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-24" parent="iLEGEHv-uXXGgKctzIfk-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
@@ -49,7 +49,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-25" parent="iLEGEHv-uXXGgKctzIfk-23" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
           <mxGeometry height="26" width="90" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-26" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="賣場" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-26" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Shop" vertex="1">
           <mxGeometry height="78" width="90" x="319" y="200" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-27" parent="iLEGEHv-uXXGgKctzIfk-26" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
@@ -58,7 +58,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-28" parent="iLEGEHv-uXXGgKctzIfk-26" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
           <mxGeometry height="26" width="90" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-29" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="類別" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-29" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Category" vertex="1">
           <mxGeometry height="78" width="90" x="319" y="360" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-30" parent="iLEGEHv-uXXGgKctzIfk-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="categoryName" vertex="1">
@@ -67,7 +67,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-31" parent="iLEGEHv-uXXGgKctzIfk-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
           <mxGeometry height="26" width="90" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-32" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="購物車" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-32" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Cart" vertex="1">
           <mxGeometry height="78" width="90" x="500" y="520" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-33" parent="iLEGEHv-uXXGgKctzIfk-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
@@ -76,7 +76,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-34" parent="iLEGEHv-uXXGgKctzIfk-32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
           <mxGeometry height="26" width="90" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-35" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="訂單" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-35" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Order" vertex="1">
           <mxGeometry height="78" width="90" x="319" y="698" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-36" parent="iLEGEHv-uXXGgKctzIfk-35" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="orderStatus" vertex="1">
@@ -85,7 +85,7 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-37" parent="iLEGEHv-uXXGgKctzIfk-35" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
           <mxGeometry height="26" width="90" y="52" as="geometry" />
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-10" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" value="賣家" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-10" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" value="Seller" vertex="1">
           <mxGeometry height="78" width="90" x="319" y="40" as="geometry" />
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-11" parent="iLEGEHv-uXXGgKctzIfk-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=1;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;movable=1;resizable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" value="location" vertex="1">
@@ -276,6 +276,28 @@
         <mxCell id="iLEGEHv-uXXGgKctzIfk-120" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-118" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
           <mxGeometry relative="1" x="1" as="geometry">
             <mxPoint x="26" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8RQZtJZfD3IEJj-Id6Km-1" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-27" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="iLEGEHv-uXXGgKctzIfk-17" value="List">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="319" y="240" />
+              <mxPoint x="260" y="240" />
+              <mxPoint x="260" y="500" />
+              <mxPoint x="342" y="500" />
+            </Array>
+            <mxPoint x="180" y="280" as="sourcePoint" />
+            <mxPoint x="250" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8RQZtJZfD3IEJj-Id6Km-2" connectable="0" parent="8RQZtJZfD3IEJj-Id6Km-1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-11" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8RQZtJZfD3IEJj-Id6Km-3" connectable="0" parent="8RQZtJZfD3IEJj-Id6Km-1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="-3" y="-23" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
