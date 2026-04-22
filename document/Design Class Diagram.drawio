@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="VtFivtQyLcDJVtvw4Dsk">
-    <mxGraphModel dx="1043" dy="783" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="815" dy="487" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -55,7 +55,7 @@
         <mxCell id="dG0GwmCcpYR5AFMPY-24-16" parent="dG0GwmCcpYR5AFMPY-24-14" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="160" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="dG0GwmCcpYR5AFMPY-24-17" parent="dG0GwmCcpYR5AFMPY-24-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ create(info, price, cond|&amp;nbsp;&amp;nbsp;&lt;div&gt;+ updateStatus()&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ updateInfo(price, cond)&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ destroy()&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/div&gt;" vertex="1">
+        <mxCell id="dG0GwmCcpYR5AFMPY-24-17" parent="dG0GwmCcpYR5AFMPY-24-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ create(info, price, cond)&amp;nbsp;&amp;nbsp;&lt;div&gt;+ updateStatus()&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ updateInfo(price, cond)&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ destroy()&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/div&gt;" vertex="1">
           <mxGeometry height="72" width="160" y="88" as="geometry" />
         </mxCell>
         <mxCell id="dG0GwmCcpYR5AFMPY-24-18" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;BookInfo&lt;/b&gt;" vertex="1">
