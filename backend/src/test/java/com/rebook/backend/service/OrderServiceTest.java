@@ -86,4 +86,74 @@ public class OrderServiceTest {
         verify(bookRepository, never()).save(any(Book.class));
         verify(orderRepository, never()).save(any(Order.class));
     }
+
+    @Test
+    public void testConfirmTransaction_BuyerOnly_Success() {
+        System.out.println("測試情境 3：買家單方面確認面交 (訂單狀態應保持 PENDING)");
+
+        // 1. 準備假資料
+        String testOrderID = "order-111";
+        String buyerID = "buyer-999";
+        String sellerID = "seller-777";
+
+        Book mockBook = new Book();
+        mockBook.setSellerID(sellerID);
+        mockBook.updateStatus(BookStatus.RESERVED);
+
+        Order mockOrder = new Order(mockBook, "CASH", buyerID);
+        // 模擬這是一筆剛建立好的處理中訂單
+        // (假設你的 Order 類別有 setOrderStatus，如果沒有請透過反射或其他方式，或直接確保建構子是 PENDING)
+
+        // 2. 設定 Mock 行為
+        when(orderRepository.findById(testOrderID)).thenReturn(Optional.of(mockOrder));
+        when(orderRepository.save(any(Order.class))).thenReturn(mockOrder);
+
+        // 3. 執行測試：買家按下確認
+        Order resultOrder = orderService.confirmTransaction(testOrderID, buyerID);
+
+        // 4. 驗證結果
+        assertTrue(resultOrder.isBuyerConfirmed(), "買家確認狀態應該要是 true");
+        assertFalse(resultOrder.isSellerConfirmed(), "賣家還沒確認，應該要是 false");
+        assertEquals(OrderStatus.PENDING, resultOrder.getOrderStatus(), "雙方尚未全數確認，訂單應維持 PENDING");
+
+        // 5. 驗證動作：此時還不能更新書籍狀態！
+        verify(bookRepository, never()).save(any(Book.class));
+    }
+
+    @Test
+    public void testConfirmTransaction_BothConfirmed_OrderCompleted() {
+        System.out.println("測試情境 4：雙方皆確認，訂單完成並扣除庫存");
+
+        // 1. 準備假資料
+        String testOrderID = "order-222";
+        String buyerID = "buyer-999";
+        String sellerID = "seller-777";
+
+        Book mockBook = new Book();
+        mockBook.setSellerID(sellerID);
+        mockBook.updateStatus(BookStatus.RESERVED);
+
+        Order mockOrder = new Order(mockBook, "CASH", buyerID);
+        // 故意把買家設為「已確認」，模擬買家已經先按過按鈕了
+        mockOrder.setBuyerConfirmed(true);
+
+        // 2. 設定 Mock 行為
+        when(orderRepository.findById(testOrderID)).thenReturn(Optional.of(mockOrder));
+        when(orderRepository.save(any(Order.class))).thenReturn(mockOrder);
+
+        // 3. 執行測試：換賣家按下確認
+        Order resultOrder = orderService.confirmTransaction(testOrderID, sellerID);
+
+        // 4. 驗證結果
+        assertTrue(resultOrder.isBuyerConfirmed(), "買家已確認");
+        assertTrue(resultOrder.isSellerConfirmed(), "賣家已確認");
+
+        // ✨ 最關鍵的驗證：狀態是否正確連動！
+        assertEquals(OrderStatus.COMPLETED, resultOrder.getOrderStatus(), "訂單狀態必須變成 COMPLETED");
+        assertEquals(BookStatus.SOLD, mockBook.getStatus(), "書籍狀態必須變成 SOLD");
+
+        // 5. 驗證動作：必須確實呼叫存檔
+        verify(bookRepository, times(1)).save(mockBook);
+        verify(orderRepository, times(1)).save(any(Order.class));
+    }
 }

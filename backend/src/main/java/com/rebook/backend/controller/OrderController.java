@@ -40,4 +40,18 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("伺服器發生未知錯誤");
         }
     }
+
+    @PutMapping("/{orderID}/confirm")
+    public ResponseEntity<?> confirmOrder(
+            @PathVariable String orderID,
+            @RequestParam String userID) {
+        try {
+            Order updatedOrder = orderService.confirmTransaction(orderID, userID);
+            return ResponseEntity.ok(updatedOrder);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("伺服器錯誤");
+        }
+    }
 }

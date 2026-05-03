@@ -16,4 +16,5 @@ public interface BookRepository extends MongoRepository<Book, String> {
             "'bookStatus': 'AVAILABLE' " +               // 買家只能搜尋到「待售中」的書
             "}")
     List<Book> findBooks(String keyword, String location, int minPrice, int maxPrice);
+    List<Book> findBySellerID(String sellerID);
 }

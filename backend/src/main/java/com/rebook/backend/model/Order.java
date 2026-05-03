@@ -15,6 +15,9 @@ public class Order {
     @DocumentReference // MongoDB 只存 BookID，但在 Java 裡可以直接拿到整本書。
     private Book book;
 
+    private boolean isBuyerConfirmed = false;
+    private boolean isSellerConfirmed = false;
+
     /*
      * 必須有空的 constructor！！！
      * Spring Boot 把 MongoDB 的 JSON 變成 Java 的 Order 時必須要有
@@ -34,4 +37,11 @@ public class Order {
     public OrderStatus getOrderStatus() { return orderStatus; }
     public void setOrderStatus(OrderStatus orderStatus) { this.orderStatus = orderStatus; }
     public Book getBook() { return book; }
+
+    public boolean isBuyerConfirmed() { return isBuyerConfirmed; }
+    public void setBuyerConfirmed(boolean buyerConfirmed) { this.isBuyerConfirmed = buyerConfirmed; }
+    public boolean isSellerConfirmed() { return isSellerConfirmed; }
+    public void setSellerConfirmed(boolean sellerConfirmed) { this.isSellerConfirmed = sellerConfirmed; }
+
+    public String getBuyerID() { return buyerID; }
 }
