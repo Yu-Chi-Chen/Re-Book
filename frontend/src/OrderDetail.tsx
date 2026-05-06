@@ -1,77 +1,263 @@
-import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function OrderDetail() {
   const location = useLocation();
   const navigate = useNavigate();
-  
-  // 為了讓畫面上的狀態可以即時更新，我們把它放進 useState
-  const [order, setOrder] = useState(location.state?.orderData); 
-  const [message, setMessage] = useState('');
+  const [order, setOrder] = useState(location.state?.orderData);
+  const [message, setMessage] = useState("");
 
   if (!order) {
-    return <div style={{ padding: '20px' }}><h2>找不到訂單</h2><button onClick={() => navigate('/')}>回首頁</button></div>;
+    return (
+      <div style={{ padding: "20px" }}>
+        <h2>找不到訂單</h2>
+        <button onClick={() => navigate("/")}>回首頁</button>
+      </div>
+    );
   }
 
-  // 接收 userID (扮演買家或賣家)
-  const handleConfirmTransaction = async (actingUserID: string, roleName: string) => {
+  // 處理確認面交
+  const handleConfirmTransaction = async (
+    actingUserID: string,
+    roleName: string,
+  ) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/orders/${order.orderID}/confirm?userID=${actingUserID}`, {
-        method: 'PUT'
-      });
-
+      const response = await fetch(
+        `http://localhost:8080/api/orders/${order.orderID}/confirm?userID=${actingUserID}`,
+        {
+          method: "PUT",
+        },
+      );
       if (response.ok) {
         const updatedOrder = await response.json();
-        setOrder(updatedOrder); // 即時更新畫面上的訂單資料
+        setOrder(updatedOrder);
         setMessage(`✅ ${roleName} 確認成功！`);
       } else {
         const errorText = await response.text();
         setMessage(`❌ 確認失敗：${errorText}`);
       }
     } catch (error) {
-      setMessage('⚠️ 系統連線錯誤');
+      setMessage("⚠️ 系統連線錯誤");
     }
   };
 
+  // 處理取消訂單 (Extension 7a)
+  const handleCancelOrder = async (actingUserID: string, roleName: string) => {
+    if (
+      window.confirm(
+        `確定要以 ${roleName} 的身分取消這筆訂單嗎？書籍將恢復為待售狀態。`,
+      )
+    ) {
+      try {
+        const response = await fetch(
+          `http://localhost:8080/api/orders/${order.orderID}/cancel?userID=${actingUserID}`,
+          {
+            method: "PUT",
+          },
+        );
+
+        if (response.ok) {
+          const updatedOrder = await response.json();
+          setOrder(updatedOrder);
+          setMessage(`🚫 訂單已由 ${roleName} 取消作廢！書籍已恢復待售。`);
+        } else {
+          const errorText = await response.text();
+          setMessage(`❌ 取消失敗：${errorText}`);
+        }
+      } catch (error) {
+        setMessage("⚠️ 系統連線錯誤");
+      }
+    }
+  };
+
+  const isCompleted = order.orderStatus === "COMPLETED";
+  const isCancelled = order.orderStatus === "CANCELLED";
+  const isPending = order.orderStatus === "PENDING";
+
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif', maxWidth: '400px', margin: '0 auto' }}>
-      <h2>📝 訂單詳細資訊</h2>
-      
-      <div style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '5px', marginBottom: '20px', backgroundColor: '#f9f9f9' }}>
-        <p><strong>訂單編號：</strong> {order.orderID}</p>
-        <p><strong>目前狀態：</strong> <span style={{ color: order.orderStatus === 'COMPLETED' ? 'green' : 'orange', fontWeight: 'bold' }}>{order.orderStatus}</span></p>
-        <p><strong>書籍狀態：</strong> {order.book.status}</p>
-        <hr />
-        {/* 顯示雙方確認進度，方便教授看懂邏輯 */}
-        <p>買家 ({order.buyerID}) 確認：{order.buyerConfirmed ? '✅ 已確認' : '❌ 未確認'}</p>
-        <p>賣家 ({order.book.sellerID}) 確認：{order.sellerConfirmed ? '✅ 已確認' : '❌ 未確認'}</p>
+    <div
+      style={{
+        padding: "20px",
+        fontFamily: "sans-serif",
+        maxWidth: "650px",
+        margin: "0 auto",
+      }}
+    >
+      <h2 style={{ textAlign: "center" }}>📝 訂單詳細資訊 (測試控制台)</h2>
+
+      {/* 訂單資訊卡片 */}
+      <div
+        style={{
+          border: "1px solid #ddd",
+          padding: "15px",
+          borderRadius: "8px",
+          marginBottom: "20px",
+          backgroundColor: "#fdfdfd",
+          boxShadow: "0 2px 5px rgba(0,0,0,0.05)",
+        }}
+      >
+        <p>
+          <strong>訂單編號：</strong> {order.orderID}
+        </p>
+        <p>
+          <strong>目前狀態：</strong>
+          <span
+            style={{
+              color: isCompleted ? "green" : isCancelled ? "red" : "#ff9800",
+              fontWeight: "bold",
+              marginLeft: "8px",
+            }}
+          >
+            {order.orderStatus}
+          </span>
+        </p>
+        <p>
+          <strong>書籍狀態：</strong>{" "}
+          {order.book.status || order.book.bookStatus}
+        </p>
+        <hr style={{ margin: "15px 0" }} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            color: "#555",
+          }}
+        >
+          <span>
+            買家確認狀態：{order.buyerConfirmed ? "✅ 已確認" : "❌ 未確認"}
+          </span>
+          <span>
+            賣家確認狀態：{order.sellerConfirmed ? "✅ 已確認" : "❌ 未確認"}
+          </span>
+        </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '10px' }}>
-        
-        <button 
-          onClick={() => handleConfirmTransaction(order.buyerID, '買家')}
-          disabled={order.buyerConfirmed || order.orderStatus === 'COMPLETED'}
-          style={{ flex: 1, padding: '10px', backgroundColor: order.buyerConfirmed ? '#ccc' : '#007BFF', color: 'white', border: 'none', borderRadius: '5px', cursor: order.buyerConfirmed ? 'not-allowed' : 'pointer' }}
+      {message && (
+        <div
+          style={{
+            padding: "12px",
+            marginBottom: "20px",
+            textAlign: "center",
+            backgroundColor: "#e9ecef",
+            borderRadius: "5px",
+            fontWeight: "bold",
+          }}
         >
-          買家確認面交
-        </button>
+          {message}
+        </div>
+      )}
 
-        
-        <button 
-          onClick={() => handleConfirmTransaction(order.book.sellerID, '賣家')}
-          disabled={order.sellerConfirmed || order.orderStatus === 'COMPLETED'}
-          style={{ flex: 1, padding: '10px', backgroundColor: order.sellerConfirmed ? '#ccc' : '#28a745', color: 'white', border: 'none', borderRadius: '5px', cursor: order.sellerConfirmed ? 'not-allowed' : 'pointer' }}
+      {/* 測試操作區塊：明確分開買賣家，解決畫面違和感 */}
+      {isPending && (
+        <div style={{ display: "flex", gap: "20px" }}>
+          {/* 左側：買家操作區 */}
+          <div
+            style={{
+              flex: 1,
+              border: "2px dashed #007BFF",
+              padding: "15px",
+              borderRadius: "8px",
+              textAlign: "center",
+            }}
+          >
+            <h4 style={{ color: "#007BFF", marginTop: 0 }}>🛒 模擬買家登入</h4>
+            <p style={{ fontSize: "12px", color: "#666" }}>
+              ID: {order.buyerID}
+            </p>
+            <button
+              onClick={() => handleConfirmTransaction(order.buyerID, "買家")}
+              disabled={order.buyerConfirmed}
+              style={{
+                width: "100%",
+                marginBottom: "10px",
+                padding: "10px",
+                backgroundColor: order.buyerConfirmed ? "#ccc" : "#007BFF",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: order.buyerConfirmed ? "not-allowed" : "pointer",
+              }}
+            >
+              買家確認面交
+            </button>
+            <button
+              onClick={() => handleCancelOrder(order.buyerID, "買家")}
+              style={{
+                width: "100%",
+                padding: "10px",
+                backgroundColor: "#fff",
+                color: "#dc3545",
+                border: "1px solid #dc3545",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              取消訂單
+            </button>
+          </div>
+
+          {/* 右側：賣家操作區 */}
+          <div
+            style={{
+              flex: 1,
+              border: "2px dashed #28a745",
+              padding: "15px",
+              borderRadius: "8px",
+              textAlign: "center",
+            }}
+          >
+            <h4 style={{ color: "#28a745", marginTop: 0 }}>📦 模擬賣家登入</h4>
+            <p style={{ fontSize: "12px", color: "#666" }}>
+              ID: {order.book.sellerID}
+            </p>
+            <button
+              onClick={() =>
+                handleConfirmTransaction(order.book.sellerID, "賣家")
+              }
+              disabled={order.sellerConfirmed}
+              style={{
+                width: "100%",
+                marginBottom: "10px",
+                padding: "10px",
+                backgroundColor: order.sellerConfirmed ? "#ccc" : "#28a745",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: order.sellerConfirmed ? "not-allowed" : "pointer",
+              }}
+            >
+              賣家確認面交
+            </button>
+            <button
+              onClick={() => handleCancelOrder(order.book.sellerID, "賣家")}
+              style={{
+                width: "100%",
+                padding: "10px",
+                backgroundColor: "#fff",
+                color: "#dc3545",
+                border: "1px solid #dc3545",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              取消訂單
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <button
+          onClick={() => navigate("/")}
+          style={{
+            border: "none",
+            background: "none",
+            color: "#007BFF",
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
         >
-          賣家確認面交
-        </button>
-      </div>
-
-      {message && <div style={{ marginTop: '15px', fontWeight: 'bold', textAlign: 'center' }}>{message}</div>}
-
-      <div style={{ marginTop: '20px', textAlign: 'center' }}>
-        <button onClick={() => navigate('/')} style={{ border: 'none', background: 'none', color: '#007BFF', cursor: 'pointer', textDecoration: 'underline' }}>
-          返回結帳測試頁
+          返回首頁
         </button>
       </div>
     </div>

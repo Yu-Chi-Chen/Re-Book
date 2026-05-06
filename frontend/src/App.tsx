@@ -1,33 +1,64 @@
 // src/App.tsx
-import React from 'react';
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
-import Checkout from './Checkout';
-import OrderDetail from './OrderDetail';
-// 引入我們新建的元件
-import SellerDashboard from './SellerDashboard';
-import BookForm from './BookForm';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home"; // 引入新建的首頁
+import Checkout from "./Checkout";
+import OrderDetail from "./OrderDetail";
+import SellerDashboard from "./SellerDashboard";
+import BookForm from "./BookForm";
+import SearchResult from "./SearchResult";
 
 function App() {
   return (
-    // BrowserRouter 讓我們的網址可以自由變化 (例如 /detail)
     <BrowserRouter>
-      {/* 加上這個簡單的導覽列 */}
-      <nav style={{ padding: '15px', backgroundColor: '#f5f5f5', borderBottom: '1px solid #ddd', marginBottom: '20px' }}>
-        <Link to="/" style={{ marginRight: '20px', textDecoration: 'none', color: '#333', fontWeight: 'bold' }}>
-          🛒 [Use Case 3] 買家結帳測試
+      {/* 全局導覽列 */}
+      <nav
+        style={{
+          padding: "15px 20px",
+          backgroundColor: "#ffffff",
+          borderBottom: "1px solid #ddd",
+          display: "flex",
+          gap: "20px",
+          alignItems: "center",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.02)",
+        }}
+      >
+        <Link
+          to="/"
+          style={{
+            fontSize: "1.2rem",
+            textDecoration: "none",
+            color: "#007BFF",
+            fontWeight: "900",
+            marginRight: "20px",
+          }}
+        >
+          Re:Book
         </Link>
-        <Link to="/seller/dashboard" style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }}>
-          📚 [Use Case 1] 賣家書籍管理
+        <Link
+          to="/checkout"
+          style={{ textDecoration: "none", color: "#555", fontWeight: "bold" }}
+        >
+          🛒 買家結帳
+        </Link>
+        <Link
+          to="/seller/dashboard"
+          style={{ textDecoration: "none", color: "#555", fontWeight: "bold" }}
+        >
+          📚 賣場管理
         </Link>
       </nav>
-      <Routes>
-        <Route path="/" element={<Checkout />} />
-        <Route path="/detail" element={<OrderDetail />} />
 
+      {/* 路由配置 */}
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* 將首頁設為根目錄 */}
+        <Route path="/checkout" element={<Checkout />} />{" "}
+        {/* 結帳移至專屬路由 */}
+        <Route path="/detail" element={<OrderDetail />} />
         {/* Use Case 1 相關路由 */}
         <Route path="/seller/dashboard" element={<SellerDashboard />} />
         <Route path="/seller/books/new" element={<BookForm />} />
         <Route path="/seller/books/edit/:id" element={<BookForm />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
     </BrowserRouter>
   );
