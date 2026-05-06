@@ -54,4 +54,19 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("伺服器錯誤");
         }
     }
+
+    @PutMapping("/{orderID}/cancel")
+    public ResponseEntity<?> cancelOrder(
+            @PathVariable String orderID,
+            @RequestParam String userID) {
+        try {
+            // 呼叫主廚 (Service) 執行取消邏輯
+            Order cancelledOrder = orderService.cancelTransaction(orderID, userID);
+            return ResponseEntity.ok(cancelledOrder);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("伺服器錯誤");
+        }
+    }
 }

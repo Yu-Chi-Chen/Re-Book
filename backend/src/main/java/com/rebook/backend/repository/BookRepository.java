@@ -1,6 +1,7 @@
 package com.rebook.backend.repository;
 
 import com.rebook.backend.model.Book;
+import com.rebook.backend.model.BookStatus;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -17,4 +18,6 @@ public interface BookRepository extends MongoRepository<Book, String> {
             "}")
     List<Book> findBooks(String keyword, String location, int minPrice, int maxPrice);
     List<Book> findBySellerID(String sellerID);
+    // 找出所有狀態為 AVAILABLE 的書籍 [cite: 497]
+    List<Book> findByBookStatus(BookStatus status);
 }

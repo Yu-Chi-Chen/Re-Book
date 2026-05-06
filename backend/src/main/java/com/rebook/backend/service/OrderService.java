@@ -71,4 +71,33 @@ public class OrderService {
 
         return orderRepository.save(order);
     }
+
+    @Transactional
+    public Order cancelTransaction(String orderID, String userID) {
+        // 1. 找訂單
+        Order order = orderRepository.findById(orderID)
+                .orElseThrow(() -> new RuntimeException("找不到該訂單"));
+
+        // 檢查：只有 PENDING (未完成) 的訂單才可以取消
+        if (order.getOrderStatus() != OrderStatus.PENDING) {
+            throw new RuntimeException("此訂單狀態無法取消");
+        }
+
+        // 2. 確認身分：只有這筆訂單的「買家」或「賣家」有權限取消
+        String sellerID = order.getBook().getSellerID();
+        if (!userID.equals(order.getBuyerID()) && !userID.equals(sellerID)) {
+            throw new RuntimeException("操作失敗：您無權取消此訂單！");
+        }
+
+        // 3. 系統將訂單作廢 (標記為 CANCELLED)
+        order.setOrderStatus(OrderStatus.CANCELLED);
+
+        // 4. 自動將書籍狀態恢復為「待售中 (AVAILABLE)」
+        Book book = order.getBook();
+        book.updateStatus(BookStatus.AVAILABLE);
+        bookRepository.save(book);
+
+        // 儲存並回傳更新後的訂單
+        return orderRepository.save(order);
+    }
 }

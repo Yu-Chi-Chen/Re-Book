@@ -65,4 +65,37 @@ public class BookService {
         return bookRepository.findById(bookId)
                 .orElseThrow(() -> new RuntimeException("找不到該書籍資料"));
     }
+
+    public List<Book> searchBooks(String keyword) {
+        // 1. 取得所有待售書籍
+        List<Book> allAvailable = bookRepository.findByBookStatus(BookStatus.AVAILABLE);
+
+        if (keyword == null || keyword.isEmpty()) {
+            return allAvailable;
+        }
+
+        String lowerKey = keyword.toLowerCase();
+
+        // 2. 關鍵字比對 (加上 Null 安全檢查)
+        return allAvailable.stream().filter(b -> {
+
+            // 【防護罩 1】檢查這本書到底有沒有 BookInfo 資料
+            if (b.getBookInfo() == null) {
+                return false; // 如果沒有，直接跳過這本書，不把它加入搜尋結果
+            }
+
+            // 安全地把資料取出來
+            String bookName = b.getBookInfo().getBookName();
+            String author = b.getBookInfo().getAuthor();
+            String isbn = b.getBookInfo().getISBN();
+
+            // 【防護罩 2】檢查取出來的欄位是不是 null，再來做 contains 比對
+            boolean matchName = (bookName != null && bookName.toLowerCase().contains(lowerKey));
+            boolean matchAuthor = (author != null && author.toLowerCase().contains(lowerKey));
+            boolean matchIsbn = (isbn != null && isbn.contains(keyword));
+
+            return matchName || matchAuthor || matchIsbn;
+
+        }).toList();
+    }
 }

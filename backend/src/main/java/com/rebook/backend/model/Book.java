@@ -16,7 +16,7 @@ public class Book {
 
     // 建立與 BookInfo 的關聯 (* -> 1)
     // 加上 lazy = true 避免每次查詢 Book 都把 BookInfo 整個撈出來，提升效能
-    @DocumentReference(lazy = true)
+    @DocumentReference
     private BookInfo bookInfo;
 
     // --- UML 定義的 Methods ---
