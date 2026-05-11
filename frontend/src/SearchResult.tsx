@@ -1,5 +1,4 @@
-// src/SearchResult.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import type { Book } from "./types";
 
@@ -9,7 +8,6 @@ export default function SearchResult() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // 從 URL 取得查詢參數 q (例如 /search?q=clean)
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get("q") || "";
 
@@ -17,7 +15,6 @@ export default function SearchResult() {
     const fetchResults = async () => {
       setLoading(true);
       try {
-        // 呼叫我們定義好的搜尋 API
         const response = await fetch(
           `http://localhost:8080/api/books/search?q=${encodeURIComponent(query)}`,
         );
@@ -93,7 +90,6 @@ export default function SearchResult() {
                 </p>
               </div>
 
-              {/* 點擊後，將 bookID 透過 state 傳遞給結帳頁面 */}
               <button
                 onClick={() =>
                   navigate("/checkout", { state: { bookID: book.bookID } })

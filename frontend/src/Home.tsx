@@ -5,11 +5,9 @@ export default function Home() {
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
 
-  // 處理搜尋提交邏輯
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (keyword.trim()) {
-      // 導向搜尋結果頁，並帶上查詢參數 q
       navigate(`/search?q=${encodeURIComponent(keyword)}`);
     }
   };
@@ -30,7 +28,6 @@ export default function Home() {
         Re:Book 📚
       </h1>
 
-      {/* 平台簡介：引用自需求文件的 Problem Statement */}
       <p
         style={{
           fontSize: "18px",
@@ -46,7 +43,6 @@ export default function Home() {
         為每一本書建立延續價值的機會！
       </p>
 
-      {/* --- 搜尋區塊 (FEA-02) --- */}
       <div style={{ marginBottom: "50px" }}>
         <form
           onSubmit={handleSearch}
@@ -88,7 +84,6 @@ export default function Home() {
         </p>
       </div>
 
-      {/* --- 功能入口區塊 --- */}
       <div
         style={{
           display: "flex",
@@ -97,7 +92,6 @@ export default function Home() {
           flexWrap: "wrap",
         }}
       >
-        {/* 買家入口 */}
         <div
           style={{
             border: "1px solid #ddd",
@@ -132,7 +126,6 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* 賣家入口 */}
         <div
           style={{
             border: "1px solid #ddd",

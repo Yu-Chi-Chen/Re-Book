@@ -16,7 +16,6 @@ export default function OrderDetail() {
     );
   }
 
-  // 處理確認面交
   const handleConfirmTransaction = async (
     actingUserID: string,
     roleName: string,
@@ -41,7 +40,6 @@ export default function OrderDetail() {
     }
   };
 
-  // 處理取消訂單 (Extension 7a)
   const handleCancelOrder = async (actingUserID: string, roleName: string) => {
     if (
       window.confirm(
@@ -85,7 +83,6 @@ export default function OrderDetail() {
     >
       <h2 style={{ textAlign: "center" }}>📝 訂單詳細資訊 (測試控制台)</h2>
 
-      {/* 訂單資訊卡片 */}
       <div
         style={{
           border: "1px solid #ddd",
@@ -147,10 +144,8 @@ export default function OrderDetail() {
         </div>
       )}
 
-      {/* 測試操作區塊：明確分開買賣家，解決畫面違和感 */}
       {isPending && (
         <div style={{ display: "flex", gap: "20px" }}>
-          {/* 左側：買家操作區 */}
           <div
             style={{
               flex: 1,
@@ -196,7 +191,6 @@ export default function OrderDetail() {
             </button>
           </div>
 
-          {/* 右側：賣家操作區 */}
           <div
             style={{
               flex: 1,

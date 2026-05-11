@@ -5,7 +5,7 @@ import type { BookFormData } from './types';
 const CURRENT_SELLER_ID = 'user_001';
 
 function BookForm() {
-  const { id } = useParams<{ id: string }>(); // 如果網址有 id，代表是編輯模式
+  const { id } = useParams<{ id: string }>(); 
   const isEditMode = !!id;
   const navigate = useNavigate();
 
@@ -14,15 +14,12 @@ function BookForm() {
     bookCond: '', price: '', categoryName: '', location: ''
   });
   
-  // 用來儲存後端回傳的欄位錯誤訊息 (例如: { isbn: "ISBN 格式錯誤" })
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // [編輯模式] 如果有 id，去後端撈這本書的舊資料填入表單
   useEffect(() => {
     if (isEditMode) {
       const fetchBookData = async () => {
         try {
-          // 注意：確保你的後端已經有實作 GET /api/books/{bookId} 的 API
           const response = await fetch(`http://localhost:8080/api/books/${id}`);
           if (response.ok) {
             const bookData = await response.json();
@@ -52,13 +49,12 @@ function BookForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: name === 'price' ? Number(value) : value }));
-    // 清除該欄位的錯誤提示
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({}); // 重置錯誤
+    setErrors({}); 
 
     const url = isEditMode 
       ? `http://localhost:8080/api/books/${id}` 
@@ -75,11 +71,9 @@ function BookForm() {
 
       if (response.ok) {
         alert(isEditMode ? '更新成功！' : '上架成功！');
-        navigate('/seller/dashboard'); // 回到清單頁，滿足「2秒內同步」的需求
+        navigate('/seller/dashboard'); 
       } else if (response.status === 400) {
-        // 處理後端 @Valid 傳回的錯誤 (4a, 4b)
         const errorData = await response.json();
-        // 假設後端 ControllerAdvice 回傳的格式是 { fieldName: "error message" }
         setErrors(errorData);
         alert('請檢查表單欄位格式！');
       }
@@ -112,8 +106,6 @@ function BookForm() {
         <label>所在地: (必填)</label>
         <input name="location" value={formData.location} onChange={handleChange} placeholder="例如：台北市" />
         {errors.location && <span style={{ color: 'red', fontSize: '12px' }}>{errors.location}</span>}
-
-        {/* 作者、出版社、分類等選填欄位可依此類推加入 */}
 
         <div style={{ marginTop: '20px' }}>
           <button type="button" onClick={() => navigate('/seller/dashboard')} style={{ marginRight: '10px' }}>取消</button>

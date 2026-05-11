@@ -1,4 +1,3 @@
-// src/Checkout.tsx
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -11,7 +10,6 @@ export default function Checkout() {
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
 
-  // 用來儲存後端回傳的完整訂單資料
   const [createdOrder, setCreatedOrder] = useState<any>(null);
 
   const navigate = useNavigate();
@@ -33,7 +31,7 @@ export default function Checkout() {
       if (response.ok) {
         const data = await response.json();
         setIsSuccess(true);
-        setCreatedOrder(data); // 把訂單存起來，按鈕就會變身！
+        setCreatedOrder(data); 
         setMessage(`🎉 結帳成功！訂單編號：${data.orderID}`);
       } else {
         const errorText = await response.text();
@@ -96,7 +94,6 @@ export default function Checkout() {
           />
         </div>
 
-        {/* 魔法在這裡：如果有成功建立訂單，就顯示「訂單詳情」按鈕，否則顯示「確認結帳」表單送出按鈕 */}
         {createdOrder ? (
           <button
             type="button"
