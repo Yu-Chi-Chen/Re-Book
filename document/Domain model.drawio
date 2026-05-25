@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="第 1 页" id="RCAoNjRS01Z3lIfcbTOO">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1061" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -148,14 +148,14 @@
             <mxPoint x="364" y="630" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-97" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-96" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-97" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-96" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="0..1" vertex="1">
           <mxGeometry relative="1" x="-1" as="geometry">
-            <mxPoint x="-10" y="-23" as="offset" />
+            <mxPoint x="-24" y="-21" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-98" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-96" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-98" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-96" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1..*" vertex="1">
           <mxGeometry relative="1" x="1" as="geometry">
-            <mxPoint x="-2" y="-5" as="offset" />
+            <mxPoint x="-4" y="-5" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-99" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-33" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=12;startFill=0;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=0;" target="iLEGEHv-uXXGgKctzIfk-14" value="Owned-by">
@@ -180,14 +180,14 @@
             <mxPoint x="499" y="558.68" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-103" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-102" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="*" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-103" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-102" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="0..*" vertex="1">
           <mxGeometry relative="1" x="-1" as="geometry">
-            <mxPoint x="2" as="offset" />
+            <mxPoint x="2" y="3" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-104" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-102" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="1" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-104" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-102" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="0..*" vertex="1">
           <mxGeometry relative="1" x="1" as="geometry">
-            <mxPoint x="-2" as="offset" />
+            <mxPoint x="-3" y="2" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-105" edge="1" parent="1" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=12;startFill=0;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endFill=0;" value="Describe">
@@ -198,12 +198,12 @@
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-106" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-105" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" value="1" vertex="1">
           <mxGeometry relative="1" x="-1" as="geometry">
-            <mxPoint x="2" as="offset" />
+            <mxPoint x="3" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-107" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-105" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
           <mxGeometry relative="1" x="1" as="geometry">
-            <mxPoint x="-2" as="offset" />
+            <mxPoint x="-4" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="iLEGEHv-uXXGgKctzIfk-108" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-14" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="iLEGEHv-uXXGgKctzIfk-24" value="Initiate">
@@ -273,9 +273,9 @@
             <mxPoint x="2" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iLEGEHv-uXXGgKctzIfk-120" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-118" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="*" vertex="1">
+        <mxCell id="iLEGEHv-uXXGgKctzIfk-120" connectable="0" parent="iLEGEHv-uXXGgKctzIfk-118" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" value="0..*" vertex="1">
           <mxGeometry relative="1" x="1" as="geometry">
-            <mxPoint x="26" as="offset" />
+            <mxPoint x="36" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="8RQZtJZfD3IEJj-Id6Km-1" edge="1" parent="1" source="iLEGEHv-uXXGgKctzIfk-27" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="iLEGEHv-uXXGgKctzIfk-17" value="List">
