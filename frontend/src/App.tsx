@@ -5,55 +5,36 @@ import OrderDetail from "./OrderDetail";
 import SellerDashboard from "./SellerDashboard";
 import BookForm from "./BookForm";
 import SearchResult from "./SearchResult";
+// 新增這兩個我們即將/已經建立的頁面
+import Login from "./Login"; 
+import Register from "./Register";
 
 function App() {
   return (
-    <BrowserRouter>
-      <nav
-        style={{
-          padding: "15px 20px",
-          backgroundColor: "#ffffff",
-          borderBottom: "1px solid #ddd",
-          display: "flex",
-          gap: "20px",
-          alignItems: "center",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.02)",
-        }}
-      >
-        <Link
-          to="/"
-          style={{
-            fontSize: "1.2rem",
-            textDecoration: "none",
-            color: "#007BFF",
-            fontWeight: "900",
-            marginRight: "20px",
-          }}
-        >
-          Re:Book
-        </Link>
-        <Link
-          to="/checkout"
-          style={{ textDecoration: "none", color: "#555", fontWeight: "bold" }}
-        >
-          🛒 買家結帳
-        </Link>
-        <Link
-          to="/seller/dashboard"
-          style={{ textDecoration: "none", color: "#555", fontWeight: "bold" }}
-        >
-          📚 賣場管理
-        </Link>
+<BrowserRouter>
+      {/* 簡單的導覽列，方便開發時切換頁面測試 */}
+      <nav style={{ padding: '10px', background: '#f0f0f0', marginBottom: '20px' }}>
+        <Link to="/" style={{ marginRight: '15px' }}>買家首頁 (Home)</Link>
+        <Link to="/seller" style={{ marginRight: '15px' }}>賣家中心 (Seller)</Link>
+        <Link to="/login" style={{ marginRight: '15px' }}>登入 (Login)</Link>
+        <Link to="/register">註冊 (Register)</Link>
       </nav>
 
+      {/* 路由設定區塊：根據網址決定要顯示哪個 Component */}
       <Routes>
-        <Route path="/" element={<Home />} /> 
-        <Route path="/checkout" element={<Checkout />} />{" "}
-        <Route path="/detail" element={<OrderDetail />} />
-        <Route path="/seller/dashboard" element={<SellerDashboard />} />
-        <Route path="/seller/books/new" element={<BookForm />} />
-        <Route path="/seller/books/edit/:id" element={<BookForm />} />
+        {/* 買家視角 */}
+        <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResult />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order/:id" element={<OrderDetail />} /> {/* 使用 :id 作為動態參數 */}
+
+        {/* 賣家視角 */}
+        <Route path="/seller" element={<SellerDashboard />} />
+        <Route path="/seller/add-book" element={<BookForm />} />
+
+        {/* 會員系統 */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

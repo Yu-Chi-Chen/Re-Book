@@ -25,3 +25,16 @@ export interface BookFormData {
   categoryName: string;
   location: string;
 }
+
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  roles: string[];
+}
+
+export interface Shop {
+  id: string;
+  shopName: string;
+  userId: string;
+}
