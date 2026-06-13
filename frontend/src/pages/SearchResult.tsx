@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import type { Book } from "./types";
+import type { Book } from "../types/types";
 
 export default function SearchResult() {
   const [results, setResults] = useState<Book[]>([]);
@@ -166,7 +166,7 @@ export default function SearchResult() {
         <div style={{ display: "grid", gap: "15px" }}>
           {results.map((book) => (
             <div
-              key={book.bookID}
+              key={book.bookId}
               style={{
                 border: "1px solid #ddd",
                 padding: "15px",
@@ -209,7 +209,7 @@ export default function SearchResult() {
 
               <button
                 onClick={() =>
-                  navigate("/checkout", { state: { bookID: book.bookID } })
+                  navigate("/checkout", { state: { bookId: book.bookId } })
                 }
                 style={{
                   padding: "10px 20px",

@@ -3,9 +3,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Checkout() {
   const location = useLocation();
-  const [bookID, setBookID] = useState(location.state?.bookID || "");
+  const [bookId, setBookId] = useState(location.state?.bookId || "");
   const [paymentMethod, setPaymentMethod] = useState("CASH");
-  const [buyerID, setBuyerID] = useState("test-buyer-001");
+  const [buyerId, setBuyerId] = useState("test-buyer-001");
 
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
@@ -24,7 +24,7 @@ export default function Checkout() {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ bookID, paymentMethod, buyerID }),
+          body: JSON.stringify({ bookId, paymentMethod, buyerId }),
         },
       );
 
@@ -32,7 +32,7 @@ export default function Checkout() {
         const data = await response.json();
         setIsSuccess(true);
         setCreatedOrder(data); 
-        setMessage(`🎉 結帳成功！訂單編號：${data.orderID}`);
+        setMessage(`🎉 結帳成功！訂單編號：${data.orderId}`);
       } else {
         const errorText = await response.text();
         setIsSuccess(false);
@@ -64,8 +64,8 @@ export default function Checkout() {
           <br />
           <input
             type="text"
-            value={bookID}
-            onChange={(e) => setBookID(e.target.value)}
+            value={bookId}
+            onChange={(e) => setBookId(e.target.value)}
             required
             style={{ width: "100%", padding: "8px" }}
           />
@@ -87,8 +87,8 @@ export default function Checkout() {
           <br />
           <input
             type="text"
-            value={buyerID}
-            onChange={(e) => setBuyerID(e.target.value)}
+            value={buyerId}
+            onChange={(e) => setBuyerId(e.target.value)}
             required
             style={{ width: "100%", padding: "8px" }}
           />
@@ -97,9 +97,8 @@ export default function Checkout() {
         {createdOrder ? (
           <button
             type="button"
-            onClick={() =>
-              navigate("/detail", { state: { orderData: createdOrder } })
-            }
+            // 改為直接跳轉到包含訂單 ID 的標準網址
+            onClick={() => navigate(`/order/${createdOrder.orderId}`)}
             style={{
               padding: "10px",
               backgroundColor: "#17a2b8",

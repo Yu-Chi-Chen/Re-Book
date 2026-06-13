@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { BookFormData } from './types';
+import type { BookFormData } from '../types/types';
 
-const CURRENT_SELLER_ID = 'user_001';
+const CURRENT_SELLER_ID = '6a14011da1c94bd5d428e232';
 
 function BookForm() {
   const { id } = useParams<{ id: string }>(); 
@@ -71,7 +71,7 @@ function BookForm() {
 
       if (response.ok) {
         alert(isEditMode ? '更新成功！' : '上架成功！');
-        navigate('/seller/dashboard'); 
+        navigate('/seller'); 
       } else if (response.status === 400) {
         const errorData = await response.json();
         setErrors(errorData);
@@ -95,8 +95,16 @@ function BookForm() {
         <input name="bookName" value={formData.bookName} onChange={handleChange} disabled={isEditMode} />
         {errors.bookName && <span style={{ color: 'red', fontSize: '12px' }}>{errors.bookName}</span>}
 
+        <label>作者:</label>
+        <input name="author" value={formData.author} onChange={handleChange} />
+        {errors.author && <span style={{ color: 'red', fontSize: '12px' }}>{errors.author}</span>}
+
+        <label>出版社:</label>
+        <input name="publisher" value={formData.publisher} onChange={handleChange} />
+        {errors.publisher && <span style={{ color: 'red', fontSize: '12px' }}>{errors.publisher}</span>}
+
         <label>書況: (必填)</label>
-        <input name="bookCond" value={formData.bookCond} onChange={handleChange} placeholder="例如：九成新" />
+        <input name="bookCond" value={formData.bookCond} onChange={handleChange} />
         {errors.bookCond && <span style={{ color: 'red', fontSize: '12px' }}>{errors.bookCond}</span>}
 
         <label>價格: (必填)</label>
@@ -104,11 +112,11 @@ function BookForm() {
         {errors.price && <span style={{ color: 'red', fontSize: '12px' }}>{errors.price}</span>}
 
         <label>所在地: (必填)</label>
-        <input name="location" value={formData.location} onChange={handleChange} placeholder="例如：台北市" />
+        <input name="location" value={formData.location} onChange={handleChange} />
         {errors.location && <span style={{ color: 'red', fontSize: '12px' }}>{errors.location}</span>}
 
         <div style={{ marginTop: '20px' }}>
-          <button type="button" onClick={() => navigate('/seller/dashboard')} style={{ marginRight: '10px' }}>取消</button>
+          <button type="button" onClick={() => navigate('/seller')} style={{ marginRight: '10px' }}>取消</button>
           <button type="submit">送出</button>
         </div>
       </form>

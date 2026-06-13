@@ -1,24 +1,19 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home"; 
-import Checkout from "./Checkout";
-import OrderDetail from "./OrderDetail";
-import SellerDashboard from "./SellerDashboard";
-import BookForm from "./BookForm";
-import SearchResult from "./SearchResult";
-// 新增這兩個我們即將/已經建立的頁面
-import Login from "./Login"; 
-import Register from "./Register";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar"; 
+import Home from "./pages/Home"; 
+import Checkout from "./pages/Checkout";
+import OrderDetail from "./pages/OrderDetail";
+import SellerDashboard from "./pages/SellerDashboard";
+import BookForm from "./components/BookForm";
+import SearchResult from "./pages/SearchResult";
+import Login from "./pages/Login"; 
+import Register from "./pages/Register";
 
 function App() {
   return (
 <BrowserRouter>
-      {/* 簡單的導覽列，方便開發時切換頁面測試 */}
-      <nav style={{ padding: '10px', background: '#f0f0f0', marginBottom: '20px' }}>
-        <Link to="/" style={{ marginRight: '15px' }}>買家首頁 (Home)</Link>
-        <Link to="/seller" style={{ marginRight: '15px' }}>賣家中心 (Seller)</Link>
-        <Link to="/login" style={{ marginRight: '15px' }}>登入 (Login)</Link>
-        <Link to="/register">註冊 (Register)</Link>
-      </nav>
+      {/* 🌟 全域頂部導覽列：放在 Routes 外面，代表它在每一頁都會顯示 */}
+      <Navbar />
 
       {/* 路由設定區塊：根據網址決定要顯示哪個 Component */}
       <Routes>
@@ -26,11 +21,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResult />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/order/:id" element={<OrderDetail />} /> {/* 使用 :id 作為動態參數 */}
+        <Route path="/order/:id" element={<OrderDetail />} />
 
         {/* 賣家視角 */}
         <Route path="/seller" element={<SellerDashboard />} />
         <Route path="/seller/add-book" element={<BookForm />} />
+        <Route path="/seller/books/edit/:id" element={<BookForm />} />
 
         {/* 會員系統 */}
         <Route path="/login" element={<Login />} />

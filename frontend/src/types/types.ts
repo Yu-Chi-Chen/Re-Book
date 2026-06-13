@@ -6,12 +6,12 @@ export interface BookInfo {
 }
 
 export interface Book {
-  bookID: string;
+  bookId: string;
   bookCond: string;
   price: number;
   bookStatus: string;
   categoryName?: string;
-  sellerID: string;
+  sellerId: string;
   bookInfo: BookInfo;
 }
 
