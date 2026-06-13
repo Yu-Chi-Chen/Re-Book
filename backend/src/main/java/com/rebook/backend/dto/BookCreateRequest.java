@@ -7,7 +7,13 @@ import jakarta.validation.constraints.Pattern;
 
 public class BookCreateRequest {
     @NotBlank(message = "ISBN不能為空")
-    @Pattern(regexp = "^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$", message = "ISBN 格式錯誤")
+    @Pattern(
+            regexp = "^(?:ISBN(?:-1[03])?:? )?" +
+                    "(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|" +
+                    "97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)" +
+                    "(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$",
+            message = "ISBN 格式錯誤"
+    )
     private String isbn;
 
     @NotBlank(message = "書名不能為空")
@@ -25,7 +31,7 @@ public class BookCreateRequest {
 
     private String categoryName;
 
-    @NotBlank(message = "書籍所在地不能為空") // 對應 Use Case 要求
+    @NotBlank(message = "書籍所在地不能為空")
     private String location;
 
     // Getter & Setter

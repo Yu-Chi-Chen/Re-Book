@@ -1,11 +1,9 @@
 package com.rebook.backend.service;
 
-import com.rebook.backend.model.Book;
-import com.rebook.backend.model.BookStatus;
-import com.rebook.backend.model.Order;
-import com.rebook.backend.model.OrderStatus;
+import com.rebook.backend.model.*;
 import com.rebook.backend.repository.BookRepository;
 import com.rebook.backend.repository.OrderRepository;
+import com.rebook.backend.repository.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,54 +16,60 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private ShopRepository shopRepository; // 新增 ShopRepository
 
-    @Transactional // 只要其中任何一個 step 失敗或噴出 Exception，Spring Boot 就會把前面已經做過的動作全部撤銷。
-    public Order processCheckout(String bookID, String paymentMethod, String buyerID) {
-        // 找書
-        Book book = bookRepository.findById(bookID)
-                .orElseThrow(() -> new RuntimeException("找不到書籍 (ID: " + bookID + ")"));
+    @Transactional
+    public Order processCheckout(String bookId, String paymentMethod, String buyerId) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new RuntimeException("找不到書籍 (ID: " + bookId + ")"));
 
-        // 檢查這本書是不是「待售中」
         if (book.getStatus() != BookStatus.AVAILABLE) {
             throw new RuntimeException("手腳太慢！該書籍已被預訂或售出");
         }
 
-        // 更新書況
         book.updateStatus(BookStatus.RESERVED);
         bookRepository.save(book);
 
-        // 建立訂單並存檔
-        Order newOrder = new Order(book, paymentMethod, buyerID);
+        // 找出這本書的賣家是誰
+        String shopId = book.getShopId();
+        Shop shop = shopRepository.findById(shopId)
+                .orElseThrow(() -> new RuntimeException("找不到該書本所屬的賣場"));
+        String sellerId = shop.getUserId();
+
+        Order newOrder = new Order(book, paymentMethod, buyerId);
+        newOrder.setSellerId(sellerId); // 把賣家 ID 存進訂單中！
         return orderRepository.save(newOrder);
     }
 
     @Transactional
-    public Order confirmTransaction(String orderID, String userID) {
-        // 1. 找訂單
-        Order order = orderRepository.findById(orderID)
+    public Order confirmTransaction(String orderId, String userId) {
+        Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("找不到該訂單"));
 
         if (order.getOrderStatus() != OrderStatus.PENDING) {
             throw new RuntimeException("此訂單狀態無法進行確認");
         }
 
-        // 2. 確認身分並打勾
-        String sellerID = order.getBook().getSellerID();
+        // 修改：透過書本的 shopId 找到對應的 Shop，進而取得賣家的 userId
+        String shopId = order.getBook().getShopId();
+        Shop shop = shopRepository.findById(shopId)
+                .orElseThrow(() -> new RuntimeException("找不到該書本所屬的賣場"));
+        String sellerId = shop.getUserId();
 
-        if (userID.equals(order.getBuyerID())) {
+        if (userId.equals(order.getBuyerId())) {
             order.setBuyerConfirmed(true);
-        } else if (userID.equals(sellerID)) {
+        } else if (userId.equals(sellerId)) {
             order.setSellerConfirmed(true);
         } else {
             throw new RuntimeException("操作失敗：您不是此訂單的買家或賣家！");
         }
 
-        // 3. 檢查：是不是雙方都確認了？
         if (order.isBuyerConfirmed() && order.isSellerConfirmed()) {
-            order.setOrderStatus(OrderStatus.COMPLETED); // 訂單完成
+            order.setOrderStatus(OrderStatus.COMPLETED);
 
             Book book = order.getBook();
-            book.updateStatus(BookStatus.SOLD); // 書籍正式售出
+            book.updateStatus(BookStatus.SOLD);
             bookRepository.save(book);
         }
 
@@ -73,31 +77,37 @@ public class OrderService {
     }
 
     @Transactional
-    public Order cancelTransaction(String orderID, String userID) {
-        // 1. 找訂單
-        Order order = orderRepository.findById(orderID)
+    public Order cancelTransaction(String orderId, String userId) {
+        Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("找不到該訂單"));
 
-        // 檢查：只有 PENDING (未完成) 的訂單才可以取消
         if (order.getOrderStatus() != OrderStatus.PENDING) {
             throw new RuntimeException("此訂單狀態無法取消");
         }
 
-        // 2. 確認身分：只有這筆訂單的「買家」或「賣家」有權限取消
-        String sellerID = order.getBook().getSellerID();
-        if (!userID.equals(order.getBuyerID()) && !userID.equals(sellerID)) {
+        // 修改：同樣需要透過 shopId 找出賣家的 userId
+        String shopId = order.getBook().getShopId();
+        Shop shop = shopRepository.findById(shopId)
+                .orElseThrow(() -> new RuntimeException("找不到該書本所屬的賣場"));
+        String sellerId = shop.getUserId();
+
+        if (!userId.equals(order.getBuyerId()) && !userId.equals(sellerId)) {
             throw new RuntimeException("操作失敗：您無權取消此訂單！");
         }
 
-        // 3. 系統將訂單作廢 (標記為 CANCELLED)
         order.setOrderStatus(OrderStatus.CANCELLED);
 
-        // 4. 自動將書籍狀態恢復為「待售中 (AVAILABLE)」
         Book book = order.getBook();
         book.updateStatus(BookStatus.AVAILABLE);
         bookRepository.save(book);
 
-        // 儲存並回傳更新後的訂單
         return orderRepository.save(order);
+    }
+
+    // 新增：根據 ID 獲取訂單詳情
+    public Order getOrderById(String orderId) {
+        return orderRepository.findById(orderId)
+                // 如果在資料庫找不到這筆訂單，就拋出例外讓 Controller 捕捉
+                .orElseThrow(() -> new RuntimeException("找不到該筆訂單 (ID: " + orderId + ")"));
     }
 }

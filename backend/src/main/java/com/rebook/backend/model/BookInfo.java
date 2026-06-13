@@ -7,9 +7,15 @@ import jakarta.validation.constraints.Pattern;
 
 @Document(collection = "book_infos")
 public class BookInfo {
-    @Id // UML 中的主鍵是 ISBN
+    @Id
     @NotBlank(message = "ISBN不能為空")
-    @Pattern(regexp = "^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$", message = "ISBN 格式錯誤")
+    @Pattern(
+            regexp = "^(?:ISBN(?:-1[03])?:? )?" +
+                    "(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|" +
+                    "97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)" +
+                    "(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$",
+            message = "ISBN 格式錯誤"
+    )
     private String ISBN;
 
     @NotBlank(message = "書名不能為空")
@@ -19,7 +25,6 @@ public class BookInfo {
 
     private String publisher;
 
-    // 依照 UML 中的 methods (可以封裝邏輯)
     public void create(String ISBN, String bookName, String author, String publisher) {
         this.ISBN = ISBN;
         this.bookName = bookName;

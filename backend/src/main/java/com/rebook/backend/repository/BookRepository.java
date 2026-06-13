@@ -11,13 +11,12 @@ import java.util.List;
 @Repository
 public interface BookRepository extends MongoRepository<Book, String> {
     @Query("{ " +
-            "'title': { $regex: ?0, $options: 'i' }, " + // 不區分大小寫
+            "'title': { $regex: ?0, $options: 'i' }, " +
             "'location': ?1, " +
             "'price': { $gte: ?2, $lte: ?3 }, " +
-            "'bookStatus': 'AVAILABLE' " +               // 買家只能搜尋到「待售中」的書
+            "'bookStatus': 'AVAILABLE' " +
             "}")
     List<Book> findBooks(String keyword, String location, int minPrice, int maxPrice);
-    List<Book> findBySellerID(String sellerID);
-    // 找出所有狀態為 AVAILABLE 的書籍 [cite: 497]
+    List<Book> findByShopId(String shopId);
     List<Book> findByBookStatus(BookStatus status);
 }

@@ -9,44 +9,35 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@RestController // 告訴 Spring Boot 這是一位負責處理 API 請求的服務生，並且他回傳的都會是 JSON 格式
-@RequestMapping("/api/orders") // 這位服務生的專屬櫃台網址
-@CrossOrigin(origins = "*") // 允許前端 (例如 React 開發伺服器) 跨網域來呼叫這個 API
+@RestController
+@RequestMapping("/api/orders")
 public class OrderController {
     @Autowired
-    private OrderService orderService; // 呼叫我們剛剛測試通過的完美大腦！
+    private OrderService orderService;
 
-    // 當前端發送 POST 請求到 /api/orders/checkout 時，會觸發這個方法
     @PostMapping("/checkout")
     public ResponseEntity<?> checkout(@RequestBody Map<String, String> payload) {
         try {
-            // 1. 服務生從客人的點菜單 (JSON Payload) 中拿出需要的資訊
-            String bookID = payload.get("bookID");
+            String bookId = payload.get("bookId");
             String paymentMethod = payload.get("paymentMethod");
-            String buyerID = payload.get("buyerID");
+            String buyerId = payload.get("buyerId");
 
-            // 2. 服務生把資訊交給主廚 (Service) 去執行核心邏輯
-            Order newOrder = orderService.processCheckout(bookID, paymentMethod, buyerID);
+            Order newOrder = orderService.processCheckout(bookId, paymentMethod, buyerId);
 
-            // 3. 結帳成功！端出做好的菜 (回傳 200 OK 與新訂單的 JSON 資料)
             return ResponseEntity.ok(newOrder);
-
         } catch (RuntimeException e) {
-            // 4. 如果主廚大喊「手腳太慢！該書籍已被預訂或售出」
-            // 服務生會很有禮貌地跟客人道歉，並回傳 400 Bad Request (請求無效) 與錯誤訊息
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         } catch (Exception e) {
-            // 預防其他未知的系統錯誤
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("伺服器發生未知錯誤");
         }
     }
 
-    @PutMapping("/{orderID}/confirm")
+    @PutMapping("/{orderId}/confirm")
     public ResponseEntity<?> confirmOrder(
-            @PathVariable String orderID,
-            @RequestParam String userID) {
+            @PathVariable String orderId,
+            @RequestParam String userId) {
         try {
-            Order updatedOrder = orderService.confirmTransaction(orderID, userID);
+            Order updatedOrder = orderService.confirmTransaction(orderId, userId);
             return ResponseEntity.ok(updatedOrder);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -55,18 +46,29 @@ public class OrderController {
         }
     }
 
-    @PutMapping("/{orderID}/cancel")
+    @PutMapping("/{orderId}/cancel")
     public ResponseEntity<?> cancelOrder(
-            @PathVariable String orderID,
-            @RequestParam String userID) {
+            @PathVariable String orderId,
+            @RequestParam String userId) {
         try {
-            // 呼叫主廚 (Service) 執行取消邏輯
-            Order cancelledOrder = orderService.cancelTransaction(orderID, userID);
+            Order cancelledOrder = orderService.cancelTransaction(orderId, userId);
             return ResponseEntity.ok(cancelledOrder);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("伺服器錯誤");
+        }
+    }
+
+    // 新增：取得單筆訂單詳情的 GET API
+    @GetMapping("/{orderId}")
+    public ResponseEntity<?> getOrderDetails(@PathVariable String orderId) {
+        try {
+            Order order = orderService.getOrderById(orderId);
+            return ResponseEntity.ok(order);
+        } catch (RuntimeException e) {
+            // 捕捉到 Service 丟出的找不到訂單例外，回傳 404 狀態碼
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 }
