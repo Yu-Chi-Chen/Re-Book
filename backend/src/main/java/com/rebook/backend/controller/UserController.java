@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.rebook.backend.model.User;
 
 @RestController
 @RequestMapping("/api/users") // 定義這個 Controller 的基礎路由
@@ -45,5 +48,14 @@ public class UserController {
             // 密碼錯誤或找不到帳號，回傳 401 Unauthorized 與錯誤訊息
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
+    }
+
+    // 🌟 新增這段：根據 UserID 取得使用者資訊
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable String id) {
+        // 這裡假設你的 UserService 或 UserRepository 有 findById 的方法
+        return userService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }

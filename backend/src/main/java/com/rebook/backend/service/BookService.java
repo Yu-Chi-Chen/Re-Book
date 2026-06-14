@@ -51,6 +51,7 @@ public class BookService {
 
         // 將書本綁定到該賣場的 ID
         newBook.setShopId(shop.getShopId());
+        newBook.setSellerId(userId);
         newBook.setBookInfo(info);
 
         return bookRepository.save(newBook);

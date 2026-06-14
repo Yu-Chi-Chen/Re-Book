@@ -5,6 +5,8 @@ import com.rebook.backend.model.User;
 import com.rebook.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
+import com.rebook.backend.model.User;
 
 @Service
 public class UserService {
@@ -35,5 +37,10 @@ public class UserService {
         }
 
         return user; // 登入成功，回傳使用者資訊（包含他的 ID 與 Roles）
+    }
+
+    // 新增這個方法，讓 Controller 可以透過 ID 找到使用者
+    public Optional<User> findById(String id) {
+        return userRepository.findById(id);
     }
 }

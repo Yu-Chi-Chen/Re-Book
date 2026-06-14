@@ -13,6 +13,7 @@ public class Book {
     private BookStatus bookStatus;
     private String categoryName;
     private String shopId;
+    private String sellerId;
 
     @DocumentReference
     private BookInfo bookInfo;
@@ -43,6 +44,7 @@ public class Book {
     public String getCategoryName() { return categoryName; }
     public String getShopId() { return shopId; }
     public BookInfo getBookInfo() { return bookInfo; }
+    public String getSellerId() { return sellerId; }
 
     /* Setters */
     public void setBookId(String id) { this.id = id; }
@@ -52,4 +54,5 @@ public class Book {
     public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
     public void setShopId(String shopId) { this.shopId = shopId; }
     public void setBookInfo(BookInfo bookInfo) { this.bookInfo = bookInfo; }
+    public void setSellerId(String sellerId) { this.sellerId = sellerId; }
 }
