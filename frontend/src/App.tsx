@@ -8,6 +8,9 @@ import BookForm from "./components/BookForm";
 import SearchResult from "./pages/SearchResult";
 import Login from "./pages/Login"; 
 import Register from "./pages/Register";
+import ChatRoom from "./pages/ChatRoom";
+import BookDetail from "./pages/BookDetail";
+import ChatList from "./pages/ChatList";
 
 function App() {
   return (
@@ -22,11 +25,17 @@ function App() {
         <Route path="/search" element={<SearchResult />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order/:id" element={<OrderDetail />} />
+        <Route path="/messages" element={<ChatList />} />  {/* 新的列表頁 */}
+        <Route path="/chat" element={<ChatRoom />} />
+        <Route path="/books/:bookId" element={<BookDetail />} />
 
         {/* 賣家視角 */}
         <Route path="/seller" element={<SellerDashboard />} />
         <Route path="/seller/add-book" element={<BookForm />} />
         <Route path="/seller/books/edit/:id" element={<BookForm />} />
+        <Route path="/messages" element={<ChatList />} />  {/* 新的列表頁 */}
+        <Route path="/chat" element={<ChatRoom />} />
+        <Route path="/books/:bookId" element={<BookDetail />} />
 
         {/* 會員系統 */}
         <Route path="/login" element={<Login />} />

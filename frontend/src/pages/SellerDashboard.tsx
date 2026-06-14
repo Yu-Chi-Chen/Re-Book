@@ -70,6 +70,8 @@ function SellerDashboard() {
               <td>${book.price}</td>
               <td>{book.bookStatus}</td>
               <td>
+                {/* 修改：新增「查看」按鈕，導向該書籍的詳情頁面 */}
+                <button onClick={() => navigate(`/books/${book.bookId}`)}>查看</button>
                 <button onClick={() => navigate(`/seller/books/edit/${book.bookId}`)}>編輯</button>
                 <button onClick={() => handleDelete(book.bookId)} style={{ marginLeft: '10px', color: 'red' }}>刪除</button>
               </td>

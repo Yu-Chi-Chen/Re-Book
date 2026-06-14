@@ -1,5 +1,6 @@
 export interface BookInfo {
-  isbn: string;
+  isbn?: string;
+  ISBN?: string;
   bookName: string;
   author?: string;
   publisher?: string;
@@ -11,6 +12,7 @@ export interface Book {
   price: number;
   bookStatus: string;
   categoryName?: string;
+  shopId: string;
   sellerId: string;
   bookInfo: BookInfo;
 }

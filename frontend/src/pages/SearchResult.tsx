@@ -179,7 +179,11 @@ export default function SearchResult() {
               }}
             >
               <div>
-                <h3 style={{ margin: "0 0 5px 0", color: "#007BFF" }}>
+                {/* 修改：讓書名變成可以點擊的連結，導向書籍詳情頁 */}
+                <h3 
+                  onClick={() => navigate(`/books/${book.bookId}`)}
+                  style={{ margin: "0 0 5px 0", color: "#007BFF", cursor: "pointer", textDecoration: "underline" }}
+                >
                   {book.bookInfo?.bookName}
                 </h3>
                 <p style={{ margin: "5px 0", color: "#666" }}>
@@ -207,22 +211,21 @@ export default function SearchResult() {
                 </p>
               </div>
 
-              <button
-                onClick={() =>
-                  navigate("/checkout", { state: { bookId: book.bookId } })
-                }
-                style={{
-                  padding: "10px 20px",
-                  backgroundColor: "#007BFF",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                }}
-              >
-                立即購買
-              </button>
+              {/* 修改：新增按鈕區塊，將查看詳情與購買放在一起 */}
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button
+                  onClick={() => navigate(`/books/${book.bookId}`)}
+                  style={{ padding: "10px 15px", backgroundColor: "#f8f9fa", color: "#333", border: "1px solid #ccc", borderRadius: "5px", cursor: "pointer", fontWeight: "bold" }}
+                >
+                  查看詳情
+                </button>
+                <button
+                  onClick={() => navigate("/checkout", { state: { bookId: book.bookId } })}
+                  style={{ padding: "10px 15px", backgroundColor: "#007BFF", color: "white", border: "none", borderRadius: "5px", cursor: "pointer", fontWeight: "bold" }}
+                >
+                  立即購買
+                </button>
+              </div>
             </div>
           ))}
         </div>
