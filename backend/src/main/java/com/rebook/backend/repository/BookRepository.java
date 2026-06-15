@@ -19,4 +19,5 @@ public interface BookRepository extends MongoRepository<Book, String> {
     List<Book> findBooks(String keyword, String location, int minPrice, int maxPrice);
     List<Book> findByShopId(String shopId);
     List<Book> findByBookStatus(BookStatus status);
+    List<Book> findByShopIdAndCategoryName(String shopId, String categoryName);
 }
