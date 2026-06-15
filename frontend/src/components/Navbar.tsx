@@ -189,6 +189,14 @@ export default function Navbar() {
           {/* 新增：如果已登入且 isDropdownOpen 為 true，則顯示下拉選單 */}
           {user && isDropdownOpen && (
             <div style={styles.dropdownMenu}>
+
+              {/* 新增：選單選項 1: 購物車 */}
+              <button 
+                style={styles.dropdownItem} 
+                onClick={() => { setIsDropdownOpen(false); navigate('/cart'); }}
+              >
+                購物車
+              </button>
               
               {/* 選單選項 1: 聊天室 */}
               <button 

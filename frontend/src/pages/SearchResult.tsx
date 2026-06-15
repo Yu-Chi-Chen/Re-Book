@@ -71,6 +71,28 @@ export default function SearchResult() {
     navigate(`/search?q=${encodeURIComponent(query)}`);
   };
 
+  // 新增：處理加入購物車的邏輯 (需傳入該書的 bookId)
+  const handleAddToCart = async (bookId: string) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/cart/add/${bookId}`, {
+        method: 'POST',
+        headers: {
+          'userId': '6a14011da1c94bd5d428e232' // FIXME: 暫時用假 ID，之後替換
+        }
+      });
+      
+      if (response.ok) {
+        alert("書籍成功加入購物車！");
+      } else {
+        const errorText = await response.text();
+        alert(`加入失敗：${errorText}`);
+      }
+    } catch (error) {
+      console.error("API 連線失敗:", error);
+      alert("系統發生錯誤，請稍後再試。");
+    }
+  };
+
   return (
     <div
       style={{
@@ -218,6 +240,13 @@ export default function SearchResult() {
                   style={{ padding: "10px 15px", backgroundColor: "#f8f9fa", color: "#333", border: "1px solid #ccc", borderRadius: "5px", cursor: "pointer", fontWeight: "bold" }}
                 >
                   查看詳情
+                </button>
+                {/* 新增：加入購物車按鈕，透過 onClick 傳遞當前 book.bookId */}
+                <button
+                  onClick={() => handleAddToCart(book.bookId)}
+                  style={{ padding: "10px 15px", backgroundColor: "#ffc107", color: "#333", border: "none", borderRadius: "5px", cursor: "pointer", fontWeight: "bold", fontSize: "14px" }}
+                >
+                  加購物車
                 </button>
                 <button
                   onClick={() => navigate("/checkout", { state: { bookId: book.bookId } })}

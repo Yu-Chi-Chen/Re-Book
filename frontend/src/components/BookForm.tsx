@@ -96,11 +96,11 @@ function BookForm() {
         {errors.bookName && <span style={{ color: 'red', fontSize: '12px' }}>{errors.bookName}</span>}
 
         <label>作者:</label>
-        <input name="author" value={formData.author} onChange={handleChange} />
+        <input name="author" value={formData.author} onChange={handleChange} disabled={isEditMode} />
         {errors.author && <span style={{ color: 'red', fontSize: '12px' }}>{errors.author}</span>}
 
         <label>出版社:</label>
-        <input name="publisher" value={formData.publisher} onChange={handleChange} />
+        <input name="publisher" value={formData.publisher} onChange={handleChange} disabled={isEditMode} />
         {errors.publisher && <span style={{ color: 'red', fontSize: '12px' }}>{errors.publisher}</span>}
 
         <label>書況: (必填)</label>

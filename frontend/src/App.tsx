@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import ChatRoom from "./pages/ChatRoom";
 import BookDetail from "./pages/BookDetail";
 import ChatList from "./pages/ChatList";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
         <Route path="/messages" element={<ChatList />} />  {/* 新的列表頁 */}
         <Route path="/chat" element={<ChatRoom />} />
         <Route path="/books/:bookId" element={<BookDetail />} />
+        {/* 新增：註冊購物車頁面路由 */}
+        <Route path="/cart" element={<Cart />} />
 
         {/* 會員系統 */}
         <Route path="/login" element={<Login />} />

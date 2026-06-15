@@ -49,6 +49,30 @@ export default function BookDetail() {
     navigate('/checkout', { state: { bookId: book.bookId } });
   };
 
+  // 新增：處理加入購物車的邏輯
+  const handleAddToCart = async () => {
+    if (!book) return;
+    try {
+      const response = await fetch(`http://localhost:8080/api/cart/add/${book.bookId}`, {
+        method: 'POST',
+        headers: {
+          'userId': '6a14011da1c94bd5d428e232' // FIXME: 這裡暫時用假 ID，之後替換成實際登入者的狀態
+        }
+      });
+      
+      if (response.ok) {
+        alert("書籍成功加入購物車！");
+      } else {
+        // 捕捉後端拋出的錯誤訊息，例如：該書籍已在購物車中
+        const errorText = await response.text();
+        alert(`加入失敗：${errorText}`);
+      }
+    } catch (error) {
+      console.error("API 連線失敗:", error);
+      alert("系統發生錯誤，請稍後再試。");
+    }
+  };
+
   if (loading) return <div style={{ textAlign: 'center', padding: '40px' }}>載入中...</div>;
   if (!book) return <div style={{ textAlign: 'center', padding: '40px' }}>找不到書籍資料。</div>;
 
@@ -86,6 +110,13 @@ export default function BookDetail() {
             style={{ flex: 1, padding: '12px', backgroundColor: '#007BFF', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '16px' }}
           >
             🛒 立即購買
+          </button>
+          {/* 新增：加入購物車按鈕 */}
+          <button 
+            onClick={handleAddToCart}
+            style={{ flex: 1, minWidth: '120px', padding: '12px', backgroundColor: '#ffc107', color: '#333', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '16px' }}
+          >
+            🛒 加入購物車
           </button>
         </div>
       </div>
