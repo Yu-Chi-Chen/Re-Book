@@ -61,20 +61,6 @@ export default function Cart() {
     }
   };
 
-  // 處理點擊「直接下單」的按鈕 (Use Case 步驟 4)
-  const handleCheckout = () => {
-    if (cartItems.length === 0) return;
-    
-    // 將購物車中所有書籍的 ID 傳送給結帳頁面
-    const bookIds = cartItems.map(item => item.bookId);
-    navigate('/checkout', { state: { bookIds: bookIds } });
-  };
-
-  // 計算購物車內書籍的總金額
-  const calculateTotal = () => {
-    return cartItems.reduce((sum, item) => sum + (item.price || 0), 0);
-  };
-
   if (loading) return <div style={{ textAlign: 'center', padding: '40px' }}>購物車載入中...</div>;
 
   return (
