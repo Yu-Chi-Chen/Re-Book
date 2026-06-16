@@ -1,26 +1,43 @@
 // src/pages/Cart.tsx
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { Book } from '../types/types';
+import type { Book, User } from '../types/types';
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  const getCurrentUserId = () => {
+    const storedUser = localStorage.getItem('currentUser');
+    if (storedUser) {
+      const user: User = JSON.parse(storedUser);
+      return user.id; // 注意：這裡假設你的 User 型別中 ID 欄位叫做 id，若是 MongoDB 預設可能是 _id
+    }
+    return null;
+  };
+
   // 取得購物車資料的函數
   const fetchCart = async () => {
+    const userId = getCurrentUserId();
+    
+    if (!userId) {
+      console.warn("使用者未登入，無法載入購物車");
+      setLoading(false);
+      navigate('/login');
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:8080/api/cart/', {
         method: 'GET',
         headers: {
-          'userId': '6a14011da1c94bd5d428e232' // FIXME: 這裡暫時用假 ID，之後串接登入狀態時再替换
+          'userId': userId // 使用動態取得的真實 ID
         }
       });
 
       if (response.ok) {
         const data = await response.json();
-        // 對應後端 CartDTO 中的 getItems() -> 轉為 JSON 後的 "items" 欄位
         setCartItems(data.items || []);
       } else {
         console.error("無法取得購物車資料");
@@ -32,7 +49,6 @@ export default function Cart() {
     }
   };
 
-  // 頁面載入時觸發
   useEffect(() => {
     fetchCart();
   }, []);
@@ -41,16 +57,21 @@ export default function Cart() {
   const handleRemoveItem = async (bookId: string) => {
     if (!window.confirm("確定要將此書籍從購物車中移除嗎？")) return;
 
+    const userId = getCurrentUserId();
+    if (!userId) {
+      alert("請先登入！");
+      return;
+    }
+
     try {
       const response = await fetch(`http://localhost:8080/api/cart/remove/${bookId}`, {
         method: 'DELETE',
         headers: {
-          'userId': '6a14011da1c94bd5d428e232' // FIXME: 暫時用假 ID
+          'userId': userId // 使用動態取得的真實 ID
         }
       });
 
       if (response.ok) {
-        // 移除成功後，直接在前端過濾掉該筆資料，不需重新打 API，畫面更新更快！
         setCartItems(prevItems => prevItems.filter(item => item.bookId !== bookId));
       } else {
         alert("移除書籍失敗");
@@ -99,7 +120,6 @@ export default function Cart() {
                 }}
               >
                 <div>
-                  {/* 點擊書名同樣能導向詳情頁 */}
                   <h4
                     onClick={() => navigate(`/books/${item.bookId}`)}
                     style={{ margin: '0 0 6px 0', color: '#007BFF', cursor: 'pointer', textDecoration: 'underline', fontSize: '18px' }}
@@ -119,7 +139,6 @@ export default function Cart() {
                   </p>
                 </div>
 
-                {/* 修改重點：右側按鈕區塊加上「購買」按鈕 */}
                 <div style={{ display: 'flex', gap: '10px' }}>
                   <button
                     onClick={() => navigate('/checkout', { state: { bookId: item.bookId } })}
