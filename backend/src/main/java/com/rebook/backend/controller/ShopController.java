@@ -40,4 +40,15 @@ public class ShopController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("無法載入賣場書籍：" + e.getMessage());
         }
     }
+
+    // 透過 userId 查詢該使用者的賣場資訊
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<?> getShopByUserId(@PathVariable String userId) {
+        try {
+            Shop shop = shopService.getShopByUserId(userId);
+            return ResponseEntity.ok(shop);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
 }

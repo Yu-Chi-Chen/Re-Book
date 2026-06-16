@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -60,15 +61,35 @@ public class OrderController {
         }
     }
 
-    // 新增：取得單筆訂單詳情的 GET API
     @GetMapping("/{orderId}")
     public ResponseEntity<?> getOrderDetails(@PathVariable String orderId) {
         try {
             Order order = orderService.getOrderById(orderId);
             return ResponseEntity.ok(order);
         } catch (RuntimeException e) {
-            // 捕捉到 Service 丟出的找不到訂單例外，回傳 404 狀態碼
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    // 🌟 新增：取得該買家的所有訂單 API
+    @GetMapping("/buyer/{userId}")
+    public ResponseEntity<?> getOrdersByBuyer(@PathVariable String userId) {
+        try {
+            List<Order> orders = orderService.getOrdersByBuyerId(userId);
+            return ResponseEntity.ok(orders);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("無法載入買家訂單");
+        }
+    }
+
+    // 🌟 新增：取得該賣家的所有訂單 API
+    @GetMapping("/seller/{userId}")
+    public ResponseEntity<?> getOrdersBySeller(@PathVariable String userId) {
+        try {
+            List<Order> orders = orderService.getOrdersBySellerId(userId);
+            return ResponseEntity.ok(orders);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("無法載入賣家訂單");
         }
     }
 }

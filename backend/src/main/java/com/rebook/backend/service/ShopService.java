@@ -38,4 +38,9 @@ public class ShopService {
 
         return savedShop;
     }
+
+    public Shop getShopByUserId(String userId) {
+        return shopRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("找不到該使用者的賣場！"));
+    }
 }

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class OrderService {
     @Autowired
@@ -17,7 +19,7 @@ public class OrderService {
     private OrderRepository orderRepository;
 
     @Autowired
-    private ShopRepository shopRepository; // 新增 ShopRepository
+    private ShopRepository shopRepository;
 
     @Transactional
     public Order processCheckout(String bookId, String paymentMethod, String buyerId) {
@@ -31,14 +33,13 @@ public class OrderService {
         book.updateStatus(BookStatus.RESERVED);
         bookRepository.save(book);
 
-        // 找出這本書的賣家是誰
         String shopId = book.getShopId();
         Shop shop = shopRepository.findById(shopId)
                 .orElseThrow(() -> new RuntimeException("找不到該書本所屬的賣場"));
         String sellerId = shop.getUserId();
 
         Order newOrder = new Order(book, paymentMethod, buyerId);
-        newOrder.setSellerId(sellerId); // 把賣家 ID 存進訂單中！
+        newOrder.setSellerId(sellerId);
         return orderRepository.save(newOrder);
     }
 
@@ -51,7 +52,6 @@ public class OrderService {
             throw new RuntimeException("此訂單狀態無法進行確認");
         }
 
-        // 修改：透過書本的 shopId 找到對應的 Shop，進而取得賣家的 userId
         String shopId = order.getBook().getShopId();
         Shop shop = shopRepository.findById(shopId)
                 .orElseThrow(() -> new RuntimeException("找不到該書本所屬的賣場"));
@@ -85,7 +85,6 @@ public class OrderService {
             throw new RuntimeException("此訂單狀態無法取消");
         }
 
-        // 修改：同樣需要透過 shopId 找出賣家的 userId
         String shopId = order.getBook().getShopId();
         Shop shop = shopRepository.findById(shopId)
                 .orElseThrow(() -> new RuntimeException("找不到該書本所屬的賣場"));
@@ -104,10 +103,18 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    // 新增：根據 ID 獲取訂單詳情
     public Order getOrderById(String orderId) {
         return orderRepository.findById(orderId)
-                // 如果在資料庫找不到這筆訂單，就拋出例外讓 Controller 捕捉
                 .orElseThrow(() -> new RuntimeException("找不到該筆訂單 (ID: " + orderId + ")"));
+    }
+
+    // 🌟 新增：根據買家 ID 獲取所有相關訂單
+    public List<Order> getOrdersByBuyerId(String buyerId) {
+        return orderRepository.findByBuyerId(buyerId);
+    }
+
+    // 🌟 新增：根據賣家 ID 獲取所有相關訂單
+    public List<Order> getOrdersBySellerId(String sellerId) {
+        return orderRepository.findBySellerId(sellerId);
     }
 }
