@@ -1,21 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Checkout() {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const [bookId, setBookId] = useState(location.state?.bookId || "");
   const [paymentMethod, setPaymentMethod] = useState("CASH");
-  const [buyerId, setBuyerId] = useState("test-buyer-001");
+  
+  // 改為從 localStorage 讀取，預設為空字串
+  const [buyerId, setBuyerId] = useState("");
 
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
 
   const [createdOrder, setCreatedOrder] = useState<any>(null);
 
-  const navigate = useNavigate();
+  // 頁面載入時檢查是否已登入
+  useEffect(() => {
+    const storedUser = localStorage.getItem('currentUser');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setBuyerId(user.id); // 取得登入者的 ID
+    } else {
+      alert("請先登入才能進行結帳！");
+      navigate('/login'); // 未登入則導向登入頁
+    }
+  }, [navigate]);
 
   const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // 雙重防護：確認真的有抓到 buyerId 才能結帳
+    if (!buyerId) {
+      setMessage("❌ 無法取得買家資訊，請嘗試重新登入。");
+      return;
+    }
+
     setMessage("處理中...");
 
     try {
@@ -24,7 +45,8 @@ export default function Checkout() {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ bookId, paymentMethod, buyerId }),
+          // 這裡送出的 buyerId 已經是真實登入者的 ID
+          body: JSON.stringify({ bookId, paymentMethod, buyerId }), 
         },
       );
 
@@ -53,7 +75,7 @@ export default function Checkout() {
         margin: "0 auto",
       }}
     >
-      <h2>ReBook 二手書結帳測試</h2>
+      <h2>ReBook 二手書結帳</h2>
 
       <form
         onSubmit={handleCheckout}
@@ -62,14 +84,15 @@ export default function Checkout() {
         <div>
           <label>書籍 ID：</label>
           <br />
+          {/* 加入 readOnly 與防呆樣式，避免使用者手賤改到 */}
           <input
             type="text"
             value={bookId}
-            onChange={(e) => setBookId(e.target.value)}
-            required
-            style={{ width: "100%", padding: "8px" }}
+            readOnly 
+            style={{ width: "100%", padding: "8px", backgroundColor: "#f5f5f5", color: "#666", cursor: "not-allowed" }}
           />
         </div>
+        
         <div>
           <label>付款方式：</label>
           <br />
@@ -82,22 +105,12 @@ export default function Checkout() {
             <option value="CREDIT_CARD">信用卡 (CREDIT_CARD)</option>
           </select>
         </div>
-        <div>
-          <label>買家 ID：</label>
-          <br />
-          <input
-            type="text"
-            value={buyerId}
-            onChange={(e) => setBuyerId(e.target.value)}
-            required
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
+
+        {/* 移除了原本的 buyerId 手動輸入區塊 */}
 
         {createdOrder ? (
           <button
             type="button"
-            // 改為直接跳轉到包含訂單 ID 的標準網址
             onClick={() => navigate(`/order/${createdOrder.orderId}`)}
             style={{
               padding: "10px",

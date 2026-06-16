@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { BookFormData } from '../types/types';
-
-const CURRENT_SELLER_ID = '6a14011da1c94bd5d428e232';
+import type { BookFormData, User } from '../types/types'; // 記得引入 User 型別
 
 function BookForm() {
   const { id } = useParams<{ id: string }>(); 
   const isEditMode = !!id;
   const navigate = useNavigate();
+
+  // 🌟 1. 新增狀態來儲存目前的登入者 ID
+  const [sellerId, setSellerId] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<BookFormData>({
     isbn: '', bookName: '', author: '', publisher: '',
@@ -17,6 +18,17 @@ function BookForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
+    // 🌟 2. 檢查登入狀態並取得 sellerId
+    const storedUser = localStorage.getItem('currentUser');
+    if (!storedUser) {
+      alert("請先登入！");
+      navigate('/login');
+      return;
+    }
+    const user: User = JSON.parse(storedUser);
+    setSellerId(user.id);
+
+    // 如果是編輯模式，則去抓取書籍資料
     if (isEditMode) {
       const fetchBookData = async () => {
         try {
@@ -44,7 +56,7 @@ function BookForm() {
 
       fetchBookData();
     }
-  }, [id, isEditMode]);
+  }, [id, isEditMode, navigate]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -56,9 +68,17 @@ function BookForm() {
     e.preventDefault();
     setErrors({}); 
 
+    // 🌟 3. 雙重防護：確認送出時有抓到 sellerId
+    if (!sellerId) {
+      alert("無法取得賣家身分，請重新登入！");
+      navigate('/login');
+      return;
+    }
+
+    // 🌟 4. 把原本寫死的地方換成動態的 sellerId
     const url = isEditMode 
       ? `http://localhost:8080/api/books/${id}` 
-      : `http://localhost:8080/api/books/seller/${CURRENT_SELLER_ID}`;
+      : `http://localhost:8080/api/books/seller/${sellerId}`;
     
     const method = isEditMode ? 'PUT' : 'POST';
 

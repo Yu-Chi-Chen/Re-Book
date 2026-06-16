@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
+// src/pages/SellerDashboard.tsx
+import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { Book } from '../types/types';
+import type { Book, User } from '../types/types';
 
-const CURRENT_SHOP_ID = '6a1407ea062b8ec1236c9e64';
-
-// 定義分類的型別
+// Category 目前不在 types.ts 中，保留在地定義
 interface Category {
   id: string;
   categoryName: string;
@@ -14,19 +13,59 @@ function SellerDashboard() {
   const [books, setBooks] = useState<Book[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   
-  // 新增分類用的輸入框狀態
   const [newCategoryName, setNewCategoryName] = useState('');
-  // 批次操作：被選取的書籍 ID
   const [selectedBookIds, setSelectedBookIds] = useState<string[]>([]);
-  // 批次操作：目標套用分類
   const [targetCategory, setTargetCategory] = useState('');
+
+  const [shopId, setShopId] = useState<string | null>(null);
+  const [shopName, setShopName] = useState<string>('個人賣場'); 
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
-  // ====== 資料獲取 ======
-  const fetchBooks = async () => {
+  useEffect(() => {
+    const initDashboard = async () => {
+      const storedUser = localStorage.getItem('currentUser');
+      if (!storedUser) {
+        navigate('/login');
+        return;
+      }
+
+      const user: User = JSON.parse(storedUser);
+
+      if (!user.roles.includes('SELLER')) {
+        alert('您尚未開通賣場，請先成為賣家！');
+        navigate('/');
+        return;
+      }
+
+      try {
+        const response = await fetch(`http://localhost:8080/api/shops/user/${user.id}`);
+        if (response.ok) {
+          const shopData = await response.json();
+          // 防呆：相容後端回傳 id 或 shopId
+          setShopId(shopData.id || shopData.shopId); 
+          if (shopData.shopName) {
+            setShopName(shopData.shopName);
+          }
+        } else {
+          alert('找不到您的賣場資料，請聯繫客服。');
+          navigate('/');
+        }
+      } catch (error) {
+        console.error('獲取賣場資料失敗:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initDashboard();
+  }, [navigate]);
+
+  const fetchBooks = useCallback(async () => {
+    if (!shopId) return;
     try {
-      const response = await fetch(`http://localhost:8080/api/shops/${CURRENT_SHOP_ID}/books`);
+      const response = await fetch(`http://localhost:8080/api/shops/${shopId}/books`);
       if (response.ok) {
         const data = await response.json();
         setBooks(data);
@@ -34,11 +73,12 @@ function SellerDashboard() {
     } catch (error) {
       console.error('Failed to fetch books:', error);
     }
-  };
+  }, [shopId]);
 
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
+    if (!shopId) return;
     try {
-      const response = await fetch(`http://localhost:8080/api/categories?shopId=${CURRENT_SHOP_ID}`);
+      const response = await fetch(`http://localhost:8080/api/categories?shopId=${shopId}`);
       if (response.ok) {
         const data = await response.json();
         setCategories(data);
@@ -46,22 +86,23 @@ function SellerDashboard() {
     } catch (error) {
       console.error('Failed to fetch categories:', error);
     }
-  };
+  }, [shopId]);
 
   useEffect(() => {
-    fetchBooks();
-    fetchCategories();
-  }, []);
+    if (shopId) {
+      fetchBooks();
+      fetchCategories();
+    }
+  }, [shopId, fetchBooks, fetchCategories]);
 
-  // ====== 分類管理 (CRUD) ======
-  // 1. 新增分類
   const handleCreateCategory = async () => {
+    if (!shopId) return;
     if (!newCategoryName.trim()) return alert('請輸入分類名稱');
     try {
-      const res = await fetch(`http://localhost:8080/api/categories/create?categoryName=${newCategoryName}&shopId=${CURRENT_SHOP_ID}`, { method: 'POST' });
+      const res = await fetch(`http://localhost:8080/api/categories/create?categoryName=${newCategoryName}&shopId=${shopId}`, { method: 'POST' });
       if (res.ok) {
         setNewCategoryName('');
-        fetchCategories(); // 重新整理分類清單
+        fetchCategories(); 
       } else {
         const errorData = await res.json();
         alert(errorData.error);
@@ -71,16 +112,16 @@ function SellerDashboard() {
     }
   };
 
-  // 2. 編輯分類
   const handleEditCategory = async (oldName: string) => {
+    if (!shopId) return;
     const newName = window.prompt(`請輸入新的分類名稱 (原名: ${oldName})`, oldName);
     if (!newName || newName === oldName) return;
 
     try {
-      const res = await fetch(`http://localhost:8080/api/categories/edit?oldName=${oldName}&newName=${newName}&shopId=${CURRENT_SHOP_ID}`, { method: 'PUT' });
+      const res = await fetch(`http://localhost:8080/api/categories/edit?oldName=${oldName}&newName=${newName}&shopId=${shopId}`, { method: 'PUT' });
       if (res.ok) {
         fetchCategories();
-        fetchBooks(); // 書籍清單內的分類名稱可能被改了，需重撈
+        fetchBooks(); 
       } else {
         const errorData = await res.json();
         alert(errorData.error);
@@ -90,38 +131,35 @@ function SellerDashboard() {
     }
   };
 
-  // 3. 刪除分類
   const handleDeleteCategory = async (categoryName: string) => {
+    if (!shopId) return;
     if (!window.confirm(`確定要刪除分類「${categoryName}」嗎？底下的書籍將變為未分類。`)) return;
     try {
-      const res = await fetch(`http://localhost:8080/api/categories/delete?categoryName=${categoryName}&shopId=${CURRENT_SHOP_ID}`, { method: 'DELETE' });
+      const res = await fetch(`http://localhost:8080/api/categories/delete?categoryName=${categoryName}&shopId=${shopId}`, { method: 'DELETE' });
       if (res.ok) {
         fetchCategories();
-        fetchBooks(); // 書籍會被重置為未分類，需重撈
+        fetchBooks(); 
       }
     } catch (error) {
       console.error('Delete category error:', error);
     }
   };
 
-  // 4. 批次套用分類至書籍
   const handleAssignCategory = async () => {
-    // 👇 加入這行印出勾選的 ID
-    console.log("準備送出的書籍 IDs:", selectedBookIds);
-
+    if (!shopId) return;
     if (selectedBookIds.length === 0) return alert('請先勾選要套用的書籍');
     if (!targetCategory) return alert('請選擇目標分類');
 
     try {
-      const res = await fetch(`http://localhost:8080/api/categories/assign?categoryName=${targetCategory}&shopId=${CURRENT_SHOP_ID}`, {
+      const res = await fetch(`http://localhost:8080/api/categories/assign?categoryName=${targetCategory}&shopId=${shopId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(selectedBookIds), // List<String> 作為 RequestBody
+        body: JSON.stringify(selectedBookIds), 
       });
       if (res.ok) {
         alert('套用成功！');
-        setSelectedBookIds([]); // 清空勾選
-        fetchBooks(); // 重撈書籍資料更新畫面
+        setSelectedBookIds([]); 
+        fetchBooks(); 
       } else {
         alert('套用失敗');
       }
@@ -130,7 +168,6 @@ function SellerDashboard() {
     }
   };
 
-  // ====== 書籍操作 ======
   const handleDeleteBook = async (bookId: string) => {
     if (window.confirm('確定要刪除這本書嗎？')) {
       try {
@@ -145,22 +182,31 @@ function SellerDashboard() {
     }
   };
 
-  // 處理 Checkbox 單選與全選
   const handleSelectBook = (bookId: string) => {
     setSelectedBookIds(prev => 
       prev.includes(bookId) ? prev.filter(id => id !== bookId) : [...prev, bookId]
     );
   };
+  
   const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) setSelectedBookIds(books.map(b => b.bookId));
-    else setSelectedBookIds([]);
+    if (e.target.checked) {
+      // 確保全選時抓到的是正確的 ID
+      setSelectedBookIds(books.map(b => b.bookId || (b as any).id));
+    } else {
+      setSelectedBookIds([]);
+    }
   };
+
+  if (loading) {
+    return <div style={{ padding: '40px', textAlign: 'center' }}>⏳ 載入賣場資訊中...</div>;
+  }
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2>個人賣場管理</h2>
+      <h2 style={{ display: 'flex', justifyContent: "center", alignItems: "center", gap: '8px' }}>
+        🏪 {shopName}
+      </h2>
       
-      {/* 區塊 1：分類管理 */}
       <div style={{ background: '#f5f5f5', padding: '15px', marginBottom: '20px', borderRadius: '8px' }}>
         <h3>分類管理</h3>
         <div style={{ marginBottom: '10px' }}>
@@ -174,7 +220,6 @@ function SellerDashboard() {
           <button onClick={handleCreateCategory}>新增分類</button>
         </div>
         
-        {/* 現有分類列表 */}
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           {categories.map(cat => (
             <div key={cat.id} style={{ border: '1px solid #ccc', padding: '5px 10px', borderRadius: '4px', background: 'white' }}>
@@ -188,9 +233,8 @@ function SellerDashboard() {
 
       <hr />
 
-      {/* 區塊 2：書籍管理與批次操作 */}
       <div style={{ display: 'flex', justifyContent: 'space-between', margin: '20px 0' }}>
-        <button onClick={() => navigate('/seller/add-book')} style={{ height: 'fit-content' }}>
+        <button onClick={() => navigate('/seller/add-book', { state: { shopId } })} style={{ height: 'fit-content' }}>
           + 新增書籍
         </button>
 
@@ -227,28 +271,41 @@ function SellerDashboard() {
           </tr>
         </thead>
         <tbody>
-          {books.map((book) => (
-            <tr key={book.bookId}>
-              <td style={{ textAlign: 'center' }}>
-                <input 
-                  type="checkbox" 
-                  checked={selectedBookIds.includes(book.bookId)}
-                  onChange={() => handleSelectBook(book.bookId)}
-                />
-              </td>
-              <td>{book.categoryName || '未分類'}</td>
-              <td>{book.bookInfo?.isbn}</td>
-              <td>{book.bookInfo?.bookName}</td>
-              <td>{book.bookCond}</td>
-              <td>${book.price}</td>
-              <td>{book.bookStatus}</td>
-              <td>
-                <button onClick={() => navigate(`/books/${book.bookId}`)}>查看</button>
-                <button onClick={() => navigate(`/seller/books/edit/${book.bookId}`)}>編輯</button>
-                <button onClick={() => handleDeleteBook(book.bookId)} style={{ marginLeft: '10px', color: 'red' }}>刪除</button>
-              </td>
-            </tr>
-          ))}
+          {books.map((book) => {
+            // 🌟 核心防呆處理：對齊 types.ts 並攔截後端 JSON 命名差異
+            // 1. 主鍵：優先取 types.ts 定義的 bookId，若後端傳 id 也能接住
+            const currentId = book.bookId || (book as any).id;
+            
+            // 2. 書名與 ISBN：優先取巢狀的 bookInfo，若後端是扁平結構也能接住
+            const currentBookName = book.bookInfo?.bookName || (book as any).bookName || '未命名書籍';
+            const currentIsbn = book.bookInfo?.isbn || book.bookInfo?.ISBN || (book as any).isbn || '無';
+            
+            // 3. 書籍狀態
+            const currentStatus = book.bookStatus || (book as any).status || '未知狀態';
+
+            return (
+              <tr key={currentId}>
+                <td style={{ textAlign: 'center' }}>
+                  <input 
+                    type="checkbox" 
+                    checked={selectedBookIds.includes(currentId)}
+                    onChange={() => handleSelectBook(currentId)}
+                  />
+                </td>
+                <td>{book.categoryName || '未分類'}</td>
+                <td>{currentIsbn}</td>
+                <td>{currentBookName}</td>
+                <td>{book.bookCond}</td>
+                <td>${book.price}</td>
+                <td>{currentStatus}</td>
+                <td>
+                  <button onClick={() => navigate(`/books/${currentId}`)}>查看</button>
+                  <button onClick={() => navigate(`/seller/books/edit/${currentId}`)}>編輯</button>
+                  <button onClick={() => handleDeleteBook(currentId)} style={{ marginLeft: '10px', color: 'red' }}>刪除</button>
+                </td>
+              </tr>
+            );
+          })}
           {books.length === 0 && (
             <tr>
               <td colSpan={8} style={{ textAlign: 'center' }}>目前沒有待售書籍</td>

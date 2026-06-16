@@ -5,15 +5,12 @@ import type { User } from '../types/types';
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
-  // 新增：控制下拉選單的顯示狀態
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  // 新增：用來參考下拉選單的 DOM 節點，以偵測外部點擊
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
-  const location = useLocation(); // 用來偵測目前網址，決定要不要重新讀取資料
+  const location = useLocation();
 
-  // 每次網址切換時，都去 LocalStorage 檢查一下有沒有人登入
   useEffect(() => {
     const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
@@ -21,9 +18,8 @@ export default function Navbar() {
     } else {
       setUser(null);
     }
-  }, [location.pathname]); // 依賴項加上 location.pathname，換頁就會觸發檢查
+  }, [location.pathname]);
 
-  // 新增：處理點擊空白處自動關閉下拉選單
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -36,59 +32,93 @@ export default function Navbar() {
 
   const handleProfileClick = () => {
     if (!user) {
-      navigate('/login'); // 沒登入就去登入頁
+      navigate('/login');
     } else {
-      // 修改：已登入時不再直接導向，而是切換下拉選單的開關狀態
       setIsDropdownOpen(!isDropdownOpen);
     }
   };
 
   const handleLogout = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 避免點擊登出時，觸發外層的 handleProfileClick
+    e.stopPropagation();
     localStorage.removeItem('currentUser');
     setUser(null);
-    setIsDropdownOpen(false); // 修改：登出時順便關閉選單
-    navigate('/'); // 登出後回首頁
+    setIsDropdownOpen(false);
+    navigate('/');
+  };
+
+  const handleBecomeSeller = async () => {
+    if (!user) return;
+    
+    // 讓使用者輸入賣場名稱，預設給一個名字
+    const shopName = window.prompt("即將開通個人賣場！請輸入您的賣場名稱：", `${user.username} 的二手書店`);
+
+    // 如果使用者按取消，或是輸入空白，就不往下執行
+    if (!shopName || shopName.trim() === "") {
+      return; 
+    }
+
+    try {
+      const response = await fetch('http://localhost:8080/api/shops', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: user.id, // 對應後端建立賣場需要的 userId
+          shopName: shopName.trim() // 對應後端需要的 shopName
+        })
+      });
+
+      if (response.ok) {
+        // 更新本地端的 user 狀態，加入 'SELLER' 角色
+        const updatedUser = { ...user, roles: [...user.roles, 'SELLER'] };
+        
+        // 存回 localStorage，確保重新整理後身分不會消失
+        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+        
+        // 更新 React state，讓 UI 的「成為賣家」按鈕瞬間變成「我的賣場」
+        setUser(updatedUser);
+        
+        alert("🎉 恭喜！你的個人賣場已成功開通！");
+        
+        // 自動導向賣場管理頁面
+        setIsDropdownOpen(false);
+        navigate('/seller');
+      } else {
+        const errorText = await response.text();
+        alert(`開通失敗：${errorText}`);
+      }
+    } catch (error) {
+      console.error("API 連線失敗:", error);
+      alert("系統連線錯誤，請確認 Spring Boot 伺服器狀態。");
+    }
   };
 
   // UI 樣式
   const styles = {
     navbar: {
       display: 'flex',
-      justifyContent: 'space-between', // 讓 Logo 靠左，使用者靠右
+      justifyContent: 'space-between',
       alignItems: 'center',
       padding: '12px 24px',
       backgroundColor: '#ffffff',
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      position: 'sticky' as const, // 讓它固定在畫面最上方
+      position: 'sticky' as const,
       top: 0,
       zIndex: 1000,
     },
     logo: {
       fontSize: '24px',
       fontWeight: 'bold',
-      color: '#4285F4', // ReBook 藍色
+      color: '#4285F4',
       cursor: 'pointer',
       textDecoration: 'none',
-    },
-    // 賣家專屬的按鈕樣式 (淺藍色底，凸顯功能性)
-    sellerBtn: {
-      padding: '8px 16px',
-      backgroundColor: '#e8f0fe',
-      color: '#1a73e8',
-      borderRadius: '8px',
-      fontWeight: '600',
-      fontSize: '14px',
-      cursor: 'pointer',
-      border: 'none',
-      transition: 'background-color 0.2s',
     },
     profileSection: {
       display: 'flex',
       alignItems: 'center',
       gap: '16px',
     },
-    // 新增：作為選單定位的父容器
     dropdownContainer: {
       position: 'relative' as const,
     },
@@ -100,14 +130,13 @@ export default function Navbar() {
       padding: '6px 12px',
       borderRadius: '20px',
       transition: 'background-color 0.2s',
-      // 新增：滑鼠懸停時加上淺灰色背景提示可點擊
       backgroundColor: isDropdownOpen ? '#f5f5f5' : 'transparent',
     },
     avatar: {
       width: '36px',
       height: '36px',
       borderRadius: '50%',
-      backgroundColor: user ? '#34A853' : '#e0e0e0', // 有登入給綠色，沒登入給灰色
+      backgroundColor: user ? '#34A853' : '#e0e0e0',
       color: user ? '#ffffff' : '#666',
       display: 'flex',
       justifyContent: 'center',
@@ -120,7 +149,6 @@ export default function Navbar() {
       color: '#333',
       fontWeight: '500',
     },
-    // 新增：下拉選單的外框樣式
     dropdownMenu: {
       position: 'absolute' as const,
       top: '110%',
@@ -136,7 +164,6 @@ export default function Navbar() {
       zIndex: 1001,
       marginTop: '8px',
     },
-    // 新增：下拉選單內的按鈕選項樣式
     dropdownItem: {
       padding: '12px 16px',
       cursor: 'pointer',
@@ -148,7 +175,6 @@ export default function Navbar() {
       borderBottom: '1px solid #eaeaea',
       width: '100%',
     },
-    // 新增：登出按鈕專用樣式 (無下邊框、紅色字)
     logoutItem: {
       padding: '12px 16px',
       cursor: 'pointer',
@@ -168,11 +194,8 @@ export default function Navbar() {
       </div>
 
       <div style={styles.profileSection}>
-        
-        {/* 修改：將原本的 sellerBtn 和 logoutBtn 移除，全部移入 dropdownContainer 內 */}
         <div style={styles.dropdownContainer} ref={dropdownRef}>
           
-          {/* 使用者頭像與名稱按鈕 */}
           <div 
             style={styles.profileCard} 
             onClick={handleProfileClick} 
@@ -186,46 +209,53 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* 新增：如果已登入且 isDropdownOpen 為 true，則顯示下拉選單 */}
           {user && isDropdownOpen && (
             <div style={styles.dropdownMenu}>
-
-              {/* 新增：選單選項 1: 購物車 */}
               <button 
                 style={styles.dropdownItem} 
                 onClick={() => { setIsDropdownOpen(false); navigate('/cart'); }}
               >
-                購物車
+                🛒 購物車
               </button>
               
-              {/* 選單選項 1: 聊天室 */}
               <button 
                 style={styles.dropdownItem} 
                 onClick={() => { setIsDropdownOpen(false); navigate('/messages'); }}
               >
-                聊天室
+                💬 聊天室
+              </button>
+
+              <button 
+                style={styles.dropdownItem} 
+                onClick={() => { setIsDropdownOpen(false); navigate('/orders'); }}
+              >
+                📝 我的訂單
               </button>
               
-              {/* 選單選項 2: 我的賣場 (僅賣家可見，如果你希望所有人都可見可移除條件判斷) */}
-              {user.roles.includes('SELLER') && (
+              {user.roles.includes('SELLER') ? (
                 <button 
                   style={styles.dropdownItem} 
                   onClick={() => { setIsDropdownOpen(false); navigate('/seller'); }}
                 >
-                  我的賣場
+                  🏪 我的賣場
+                </button>
+              ) : (
+                <button 
+                  style={styles.dropdownItem} 
+                  onClick={handleBecomeSeller}
+                >
+                  🚀 成為賣家
                 </button>
               )}
               
-              {/* 選單選項 3: 登出 */}
               <button 
                 style={styles.logoutItem} 
                 onClick={handleLogout}
               >
-                登出
+                🚪 登出
               </button>
             </div>
           )}
-          
         </div>
       </div>
     </nav>
