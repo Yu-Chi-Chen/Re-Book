@@ -13,7 +13,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    // 註冊邏輯
     public User registerUser(String username, String email, String password) {
         // 檢查 Email 是否已存在
         if (userRepository.existsByEmail(email)) {
@@ -26,7 +25,6 @@ public class UserService {
         return userRepository.save(newUser);
     }
 
-    // 登入邏輯
     public User loginUser(String email, String password) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("找不到該 Email 的使用者"));
@@ -39,7 +37,6 @@ public class UserService {
         return user; // 登入成功，回傳使用者資訊（包含他的 ID 與 Roles）
     }
 
-    // 新增這個方法，讓 Controller 可以透過 ID 找到使用者
     public Optional<User> findById(String id) {
         return userRepository.findById(id);
     }

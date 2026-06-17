@@ -23,18 +23,14 @@ public class BookService {
     private BookInfoRepository bookInfoRepository;
 
     @Autowired
-    private ShopRepository shopRepository; // 新增 ShopRepository
+    private ShopRepository shopRepository;
 
-    // 修改：改為透過 shopId 查詢書籍
     public List<Book> getBooksByShop(String shopId) {
         return bookRepository.findByShopId(shopId);
-        // 注意：你需要去 BookRepository 把 findBySellerId 改成 findByShopId
-        // 並且把 Book.java 裡面的 sellerId 改成 shopId
     }
 
     @Transactional
     public Book createBook(BookCreateRequest request, String userId) {
-        // 先確認這個使用者有沒有開通賣場
         Shop shop = shopRepository.findByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("您尚未建立賣場，無法上架書籍！"));
 
@@ -49,7 +45,6 @@ public class BookService {
         newBook.updateCategory(request.getCategoryName());
         newBook.updateStatus(BookStatus.AVAILABLE);
 
-        // 將書本綁定到該賣場的 ID
         newBook.setShopId(shop.getShopId());
         newBook.setSellerId(userId);
         newBook.setBookInfo(info);
@@ -76,11 +71,9 @@ public class BookService {
     }
 
     public List<Book> searchBooks(String keyword, String location, Integer minPrice, Integer maxPrice) {
-        // 取得所有上架中的書籍
         List<Book> allAvailable = bookRepository.findByBookStatus(BookStatus.AVAILABLE);
 
         return allAvailable.stream().filter(b -> {
-            // 1. 關鍵字篩選 (書名、作者、ISBN)
             boolean matchKeyword = true;
             if (keyword != null && !keyword.isEmpty()) {
                 String lowerKey = keyword.toLowerCase();
@@ -90,19 +83,12 @@ public class BookService {
                 matchKeyword = matchName || matchAuthor || matchIsbn;
             }
 
-            // 2. 價格區間篩選
             boolean matchMinPrice = (minPrice == null) || b.getPrice() >= minPrice;
             boolean matchMaxPrice = (maxPrice == null) || b.getPrice() <= maxPrice;
 
-            // 3. 所在地篩選
             boolean matchLocation = true;
-            if (location != null && !location.isEmpty()) {
-                // 需確認 Book 模型中是否有 location 屬性，或需要透過關聯的 Seller 取得
-                // 假設 b.getLocation() 存在：
-                // matchLocation = b.getLocation() != null && b.getLocation().contains(location);
-            }
+            // if (location != null && !location.isEmpty()) {}
 
-            // 必須同時符合所有條件才回傳 (AND 邏輯)
             return matchKeyword && matchMinPrice && matchMaxPrice && matchLocation;
         }).toList();
     }

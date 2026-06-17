@@ -22,7 +22,7 @@ public class CategoryController {
 
     @PostMapping("/create")
     public ResponseEntity<?> createCategory(@RequestParam String categoryName,
-                                            @RequestParam String shopId) { // 實務上 shopId 應從 JWT Token 取得
+                                            @RequestParam String shopId) {
         try {
             categoryService.createCategory(categoryName, shopId);
             return ResponseEntity.ok(Map.of("message", "分類建立成功"));
@@ -56,22 +56,19 @@ public class CategoryController {
 
     @PostMapping("/assign")
     public ResponseEntity<?> assignBooksToCategory(@RequestParam String categoryName,
-                                                   @RequestBody List<String> bookIDs, // 注意：配合 Book.java，這裡改為 String
+                                                   @RequestBody List<String> bookIDs,
                                                    @RequestParam String shopId) {
         try {
             categoryService.assignBooksToCategory(categoryName, bookIDs, shopId);
             return ResponseEntity.ok(Map.of("message", "書籍分類套用成功"));
         } catch (Exception e) {
-            // 觸發 4a：批次移動失敗，系統提示重新操作
             return ResponseEntity.internalServerError().body(Map.of("error", "批次移動失敗，請重新操作：" + e.getMessage()));
         }
     }
 
-    // 加上這支 API 才能讓前端抓到分類清單
     @GetMapping("")
     public ResponseEntity<?> getCategoriesBySeller(@RequestParam String shopId) {
         try {
-            // 請確保 CategoryRepository 有 findByShopId 的方法
             List<Category> categories = categoryRepository.findByShopId(shopId);
             return ResponseEntity.ok(categories);
         } catch (Exception e) {

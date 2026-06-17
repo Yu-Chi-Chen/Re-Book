@@ -14,11 +14,9 @@ public class Shop {
     @Indexed(unique = true)
     private String userId;
 
-    // 無參數建構子（MongoDB 反序列化、對應資料時必須存在）
     public Shop() {
     }
 
-    // 方便業務邏輯建立物件的建構子
     public Shop(String shopName, String userId) {
         this.shopName = shopName;
         this.userId = userId;

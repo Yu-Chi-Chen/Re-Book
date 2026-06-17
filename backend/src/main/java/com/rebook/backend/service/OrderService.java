@@ -108,12 +108,9 @@ public class OrderService {
                 .orElseThrow(() -> new RuntimeException("找不到該筆訂單 (ID: " + orderId + ")"));
     }
 
-    // 🌟 新增：根據買家 ID 獲取所有相關訂單
     public List<Order> getOrdersByBuyerId(String buyerId) {
         return orderRepository.findByBuyerId(buyerId);
     }
-
-    // 🌟 新增：根據賣家 ID 獲取所有相關訂單
     public List<Order> getOrdersBySellerId(String sellerId) {
         return orderRepository.findBySellerId(sellerId);
     }

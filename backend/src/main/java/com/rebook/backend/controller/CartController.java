@@ -14,7 +14,6 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-    // + addItem(bookID)
     @PostMapping("/add/{bookID}")
     public ResponseEntity<String> addItem(
             @PathVariable String bookID,
@@ -28,7 +27,6 @@ public class CartController {
         }
     }
 
-    // + removeItem(bookID)
     @DeleteMapping("/remove/{bookID}")
     public ResponseEntity<String> removeItem(
             @PathVariable String bookID,
@@ -38,7 +36,6 @@ public class CartController {
         return ResponseEntity.ok("已從購物車移除該書籍");
     }
 
-    // + viewCart(): Cart (這裡回傳 CartDTO)
     @GetMapping("/")
     public ResponseEntity<CartDTO> viewCart(@RequestHeader("userId") String userId) {
         CartDTO cartDTO = cartService.viewCart(userId);

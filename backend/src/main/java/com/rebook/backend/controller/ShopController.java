@@ -34,14 +34,12 @@ public class ShopController {
     public ResponseEntity<?> getBooksInShop(@PathVariable String shopId) {
         try {
             List<Book> shopBooks = bookRepository.findByShopId(shopId);
-            // 就算賣場還沒上架任何書，回傳空陣列也是正常的，不用報錯
             return ResponseEntity.ok(shopBooks);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("無法載入賣場書籍：" + e.getMessage());
         }
     }
 
-    // 透過 userId 查詢該使用者的賣場資訊
     @GetMapping("/user/{userId}")
     public ResponseEntity<?> getShopByUserId(@PathVariable String userId) {
         try {

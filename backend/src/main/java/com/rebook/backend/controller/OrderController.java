@@ -71,7 +71,6 @@ public class OrderController {
         }
     }
 
-    // 🌟 新增：取得該買家的所有訂單 API
     @GetMapping("/buyer/{userId}")
     public ResponseEntity<?> getOrdersByBuyer(@PathVariable String userId) {
         try {
@@ -82,7 +81,6 @@ public class OrderController {
         }
     }
 
-    // 🌟 新增：取得該賣家的所有訂單 API
     @GetMapping("/seller/{userId}")
     public ResponseEntity<?> getOrdersBySeller(@PathVariable String userId) {
         try {

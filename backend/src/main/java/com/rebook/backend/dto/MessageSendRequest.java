@@ -1,11 +1,11 @@
 package com.rebook.backend.dto;
 
 public class MessageSendRequest {
-    private String buyerID;  // 在此情境下為 sender
-    private String sellerID; // 在此情境下為 receiver
+    private String buyerID;
+    private String sellerID;
     private String content;
 
-    // Getters and Setters 省略
+    // Getters and Setters
     public String getBuyerID() { return buyerID; }
     public void setBuyerID(String buyerID) { this.buyerID = buyerID; }
     public String getSellerID() { return sellerID; }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/search") // 獨立為 search 路由，對應 SearchController 的設計
+@RequestMapping("/api/search")
 public class SearchController {
     @Autowired
     private BookService bookService;
@@ -25,7 +25,6 @@ public class SearchController {
         return ResponseEntity.ok(results);
     }
 
-    // 根據設計圖，這裡也可以放入 viewBookDetails
     @GetMapping("/books/{bookId}")
     public ResponseEntity<Book> viewBookDetails(@PathVariable String bookId) {
         Book book = bookService.getBookById(bookId);

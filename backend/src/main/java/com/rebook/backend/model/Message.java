@@ -16,15 +16,14 @@ public class Message {
 
     public Message() {}
 
-    // 對應 UML 中的 create(senderID, receiverID, content) 方法
     public Message(String senderID, String receiverID, String content) {
         this.senderID = senderID;
         this.receiverID = receiverID;
         this.content = content;
-        this.timestamp = LocalDateTime.now(); // 建立時自動產生時間戳記
+        this.timestamp = LocalDateTime.now();
     }
 
-    // Getters and Setters 省略
+    // Getters and Setters
     public String getMessageID() { return messageID; }
     public void setMessageID(String messageID) { this.messageID = messageID; }
     public String getSenderID() { return senderID; }

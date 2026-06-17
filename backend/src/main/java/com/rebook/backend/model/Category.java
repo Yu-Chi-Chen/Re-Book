@@ -8,7 +8,7 @@ public class Category {
     @Id
     private String id;
     private String categoryName;
-    private String shopId; // 綁定賣家，確保每個賣家的分類名稱獨立
+    private String shopId;
 
     public Category() {}
 

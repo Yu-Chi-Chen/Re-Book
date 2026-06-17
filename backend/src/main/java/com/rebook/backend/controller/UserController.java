@@ -18,7 +18,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // 處理註冊 API: POST /api/users/register
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UserRegisterRequest request) {
         try {
@@ -36,7 +35,6 @@ public class UserController {
         }
     }
 
-    // 處理登入 API: POST /api/users/login
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserLoginRequest request) {
         try {
@@ -50,7 +48,6 @@ public class UserController {
         }
     }
 
-    // 🌟 新增這段：根據 UserID 取得使用者資訊
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         // 這裡假設你的 UserService 或 UserRepository 有 findById 的方法
