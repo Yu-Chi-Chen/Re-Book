@@ -1,0 +1,2465 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?plantuml 1.2026.2?><svg
+   contentStyleType="text/css"
+   data-diagram-type="CLASS"
+   height="1319"
+   preserveAspectRatio="none"
+   version="1.1"
+   viewBox="0 0 3514 1319"
+   width="3514"
+   zoomAndPan="magnify"
+   id="svg150"
+   sodipodi:docname="design class diagram.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview150"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="3514"
+       height="1319"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     class="entity"
+     data-qualified-name="Roles"
+     data-source-line="4"
+     id="ent0002">
+    <rect
+       fill="#f1f1f1"
+       height="105.1563"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="119.752"
+       x="3233"
+       y="7"
+       id="rect1" />
+    <circle
+       cx="3248"
+       cy="27.132799"
+       fill="#eb937f"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse1"
+       r="11" />
+    <path
+       d="m 3252.1094,33.1328 h -7.7188 V 20.7422 h 7.7188 v 2.1562 h -5.2656 v 2.6719 h 4.7656 v 2.1563 h -4.7656 v 3.25 h 5.2656 z"
+       fill="#000000"
+       id="path1" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12px"
+       font-style="italic"
+       lengthAdjust="spacing"
+       textLength="91.751999"
+       x="3260"
+       y="23.1387"
+       id="text1">«enumeration»</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="38.089802"
+       x="3286.8311"
+       y="38.963902"
+       id="text2">Roles</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="3234"
+       x2="3351.752"
+       y1="47.265598"
+       y2="47.265598"
+       id="line2" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="46.976601"
+       x="3239"
+       y="64.260696"
+       id="text3">BUYER</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="51.9053"
+       x="3239"
+       y="80.557602"
+       id="text4">SELLER</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="47.038101"
+       x="3239"
+       y="96.8545"
+       id="text5">ADMIN</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="3234"
+       x2="3351.752"
+       y1="104.1563"
+       y2="104.1563"
+       id="line5" />
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="BookStatus"
+     data-source-line="10"
+     id="ent0003">
+    <rect
+       fill="#f1f1f1"
+       height="105.1563"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="119.752"
+       x="3388"
+       y="7"
+       id="rect5" />
+    <circle
+       cx="3403"
+       cy="27.132799"
+       fill="#eb937f"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse5"
+       r="11" />
+    <path
+       d="m 3407.1094,33.1328 h -7.7188 V 20.7422 h 7.7188 v 2.1562 h -5.2656 v 2.6719 h 4.7656 v 2.1563 h -4.7656 v 3.25 h 5.2656 z"
+       fill="#000000"
+       id="path5" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12px"
+       font-style="italic"
+       lengthAdjust="spacing"
+       textLength="91.751999"
+       x="3415"
+       y="23.1387"
+       id="text6">«enumeration»</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="79.454102"
+       x="3421.1489"
+       y="38.963902"
+       id="text7">BookStatus</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="3389"
+       x2="3506.752"
+       y1="47.265598"
+       y2="47.265598"
+       id="line7" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="76.487297"
+       x="3394"
+       y="64.260696"
+       id="text8">AVAILABLE</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="75.236298"
+       x="3394"
+       y="80.557602"
+       id="text9">RESERVED</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="38.486301"
+       x="3394"
+       y="96.8545"
+       id="text10">SOLD</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="3389"
+       x2="3506.752"
+       y1="104.1563"
+       y2="104.1563"
+       id="line10" />
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="OrderStatus"
+     data-source-line="16"
+     id="ent0004">
+    <rect
+       fill="#f1f1f1"
+       height="105.1563"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="119.752"
+       x="3233"
+       y="274.5"
+       id="rect10" />
+    <circle
+       cx="3248"
+       cy="294.63281"
+       fill="#eb937f"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse10"
+       r="11" />
+    <path
+       d="m 3252.1094,300.6328 h -7.7188 v -12.3906 h 7.7188 v 2.1562 h -5.2656 v 2.6719 h 4.7656 v 2.1563 h -4.7656 v 3.25 h 5.2656 z"
+       fill="#000000"
+       id="path10" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="12px"
+       font-style="italic"
+       lengthAdjust="spacing"
+       textLength="91.751999"
+       x="3260"
+       y="290.6387"
+       id="text11">«enumeration»</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="84.642601"
+       x="3263.5547"
+       y="306.4639"
+       id="text12">OrderStatus</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="3234"
+       x2="3351.752"
+       y1="314.76559"
+       y2="314.76559"
+       id="line12" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="63.991199"
+       x="3239"
+       y="331.76071"
+       id="text13">PENDING</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="86.139603"
+       x="3239"
+       y="348.05759"
+       id="text14">COMPLETED</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="83.671898"
+       x="3239"
+       y="364.35449"
+       id="text15">CANCELLED</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="3234"
+       x2="3351.752"
+       y1="371.65631"
+       y2="371.65631"
+       id="line15" />
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="User"
+     data-source-line="23"
+     id="ent0005">
+    <rect
+       fill="#f1f1f1"
+       height="276.15631"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="747.4375"
+       x="2450.5"
+       y="189"
+       id="rect15" />
+    <circle
+       cx="2804.0137"
+       cy="205"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse15"
+       r="11" />
+    <path
+       d="m 2806.9824,210.6406 q -0.5781,0.2969 -1.2187,0.4375 -0.6407,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path15" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="31.9102"
+       x="2824.5137"
+       y="209.84669"
+       id="text16">User</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2451.5"
+       x2="3196.9375"
+       y1="221"
+       y2="221"
+       id="line16" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="45.486301"
+       x="2456.5"
+       y="237.9951"
+       id="text17">-id: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="127.8389"
+       x="2456.5"
+       y="254.29201"
+       id="text18">-userName: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="94.609398"
+       x="2456.5"
+       y="270.5889"
+       id="text19">-email: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="122.7119"
+       x="2456.5"
+       y="286.88571"
+       id="text20">-password: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="86.426804"
+       x="2456.5"
+       y="303.18259"
+       id="text21">-roles: Roles</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2451.5"
+       x2="3196.9375"
+       y1="310.48441"
+       y2="310.48441"
+       id="line21" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="392.3555"
+       x="2456.5"
+       y="327.47949"
+       id="text22">+createOrder(bk: Book, paymentMethod: String): Order</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="238.2939"
+       x="2456.5"
+       y="343.7764"
+       id="text23">+confirmTransaction(orderID: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="230.2959"
+       x="2456.5"
+       y="360.07321"
+       id="text24">+cancelTransaction(orderID: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="156.72749"
+       x="2456.5"
+       y="376.37009"
+       id="text25">+addToCart(bk: Book)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="218.4287"
+       x="2456.5"
+       y="392.66699"
+       id="text26">+removeFromCart(bookID: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="114.0098"
+       x="2456.5"
+       y="408.9639"
+       id="text27">+getCart(): Cart</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="735.4375"
+       x="2456.5"
+       y="425.26071"
+       id="text28">+addBook(ISBN: String, bookName: String, author: String, publisher: String, bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="395.1377"
+       x="2456.5"
+       y="441.55759"
+       id="text29">+modifyListing(bookID: Int, bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="125.2344"
+       x="2456.5"
+       y="457.85449"
+       id="text30">+getShop(): Shop</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Shop"
+     data-source-line="40"
+     id="ent0006">
+    <rect
+       fill="#f1f1f1"
+       height="162.07809"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="789.02728"
+       x="1166.5"
+       y="542"
+       id="rect30" />
+    <circle
+       cx="1539.1577"
+       cy="558"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse30"
+       r="11" />
+    <path
+       d="m 1542.1265,563.6406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path30" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="35.211899"
+       x="1559.6577"
+       y="562.84668"
+       id="text31">Shop</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1167.5"
+       x2="1954.5273"
+       y1="574"
+       y2="574"
+       id="line31" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="45.486301"
+       x="1172.5"
+       y="590.99512"
+       id="text32">-id: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="130.92191"
+       x="1172.5"
+       y="607.29199"
+       id="text33">-shopName: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="76.261703"
+       x="1172.5"
+       y="623.58893"
+       id="text34">-userId: Int</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1167.5"
+       x2="1954.5273"
+       y1="630.89062"
+       y2="630.89062"
+       id="line34" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="777.02728"
+       x="1172.5"
+       y="647.88568"
+       id="text35">+addBookToList(ISBN: String, bookName: String, author: String, publisher: String, bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="382.0195"
+       x="1172.5"
+       y="664.18262"
+       id="text36">+updateItem(bookID: Int, bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="179.7236"
+       x="1172.5"
+       y="680.47949"
+       id="text37">+getBooks(): List&lt;Book&gt;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="213.3018"
+       x="1172.5"
+       y="696.77643"
+       id="text38">+removeFromList(bookID: Int)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Book"
+     data-source-line="50"
+     id="ent0007">
+    <rect
+       fill="#f1f1f1"
+       height="243.5625"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="303.05371"
+       x="1644.5"
+       y="781"
+       id="rect38" />
+    <circle
+       cx="1774.3555"
+       cy="797"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse38"
+       r="11" />
+    <path
+       d="m 1777.3242,802.6406 q -0.5781,0.2969 -1.2187,0.4375 -0.6407,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path38" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="34.8428"
+       x="1794.8555"
+       y="801.84668"
+       id="text39">Book</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1645.5"
+       x2="1946.5537"
+       y1="813"
+       y2="813"
+       id="line39" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="45.486301"
+       x="1650.5"
+       y="829.99512"
+       id="text40">-id: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="126.2256"
+       x="1650.5"
+       y="846.29199"
+       id="text41">-bookCond: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="67.552696"
+       x="1650.5"
+       y="862.58893"
+       id="text42">-price: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="172.40919"
+       x="1650.5"
+       y="878.88568"
+       id="text43">-bookStatus: BookStatus</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="159.1748"
+       x="1650.5"
+       y="895.18262"
+       id="text44">-categoryName: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="79.344704"
+       x="1650.5"
+       y="911.47949"
+       id="text45">-shopId: Int</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1645.5"
+       x2="1946.5537"
+       y1="918.78131"
+       y2="918.78131"
+       id="line45" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="259.97751"
+       x="1650.5"
+       y="935.77643"
+       id="text46">+create(bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="291.05371"
+       x="1650.5"
+       y="952.07318"
+       id="text47">+updateInfo(bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="115.9785"
+       x="1650.5"
+       y="968.37012"
+       id="text48">+destroy(id: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="290.05569"
+       x="1650.5"
+       y="984.66699"
+       id="text49">+updateCategory(categoryName: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="178.87601"
+       x="1650.5"
+       y="1000.9639"
+       id="text50">+getStatus(): BookStatus</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="278.7627"
+       x="1650.5"
+       y="1017.2607"
+       id="text51">+updateStatus(newStatus: BookStatus)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="BookInfo"
+     data-source-line="65"
+     id="ent0008">
+    <rect
+       fill="#f1f1f1"
+       height="162.07809"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="529.51459"
+       x="1327"
+       y="1126.5"
+       id="rect51" />
+    <circle
+       cx="1556.8379"
+       cy="1142.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse51"
+       r="11" />
+    <path
+       d="m 1559.8066,1148.1406 q -0.5781,0.2969 -1.2187,0.4375 -0.6406,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7032,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path51" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="61.338902"
+       x="1577.3379"
+       y="1147.3467"
+       id="text52">BookInfo</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1328"
+       x2="1855.5146"
+       y1="1158.5"
+       y2="1158.5"
+       id="line52" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="89.092796"
+       x="1333"
+       y="1175.4951"
+       id="text53">-ISBN: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="131.4277"
+       x="1333"
+       y="1191.792"
+       id="text54">-bookName: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="102.1357"
+       x="1333"
+       y="1208.0889"
+       id="text55">-author: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="120.9619"
+       x="1333"
+       y="1224.3857"
+       id="text56">-publisher: String</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1328"
+       x2="1855.5146"
+       y1="1231.6875"
+       y2="1231.6875"
+       id="line56" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="159.7695"
+       x="1333"
+       y="1248.6826"
+       id="text57">+findInfo(ISBN: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="517.51459"
+       x="1333"
+       y="1264.9795"
+       id="text58">+create(ISBN: String, bookName: String, author: String, publisher: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="159.58501"
+       x="1333"
+       y="1281.2764"
+       id="text59">+destroy(ISBN: String)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Category"
+     data-source-line="75"
+     id="ent0009">
+    <rect
+       fill="#f1f1f1"
+       height="96.890602"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="246.4727"
+       x="2055"
+       y="574.5"
+       id="rect59" />
+    <circle
+       cx="2142.0112"
+       cy="590.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse59"
+       r="11" />
+    <path
+       d="m 2144.98,596.1406 q -0.5781,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path59" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="63.950199"
+       x="2162.5112"
+       y="595.34668"
+       id="text60">Category</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2056"
+       x2="2300.4727"
+       y1="606.5"
+       y2="606.5"
+       id="line60" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="159.1748"
+       x="2061"
+       y="623.49512"
+       id="text61">-categoryName: String</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2056"
+       x2="2300.4727"
+       y1="630.79688"
+       y2="630.79688"
+       id="line61" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="158.0537"
+       x="2061"
+       y="647.79199"
+       id="text62">+create(name: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="234.4727"
+       x="2061"
+       y="664.08893"
+       id="text63">+updateName(newName: String)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Order"
+     data-source-line="81"
+     id="ent0010">
+    <rect
+       fill="#f1f1f1"
+       height="210.9688"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="315.12601"
+       x="2001.5"
+       y="1102"
+       id="rect63" />
+    <circle
+       cx="2134.7974"
+       cy="1118"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse63"
+       r="11" />
+    <path
+       d="m 2137.7661,1123.6406 q -0.5781,0.2969 -1.2187,0.4375 -0.6407,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path63" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="40.0313"
+       x="2155.2974"
+       y="1122.8467"
+       id="text64">Order</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2002.5"
+       x2="2315.626"
+       y1="1134"
+       y2="1134"
+       id="line64" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="45.486301"
+       x="2007.5"
+       y="1150.9951"
+       id="text65">-id: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="181.0498"
+       x="2007.5"
+       y="1167.292"
+       id="text66">-orderStatus: OrderStatus</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="170.87109"
+       x="2007.5"
+       y="1183.5889"
+       id="text67">-paymentMethod: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="86.139603"
+       x="2007.5"
+       y="1199.8857"
+       id="text68">-buyerId: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="79.344704"
+       x="2007.5"
+       y="1216.1826"
+       id="text69">-shopId: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="196.15041"
+       x="2007.5"
+       y="1232.4795"
+       id="text70">-isBuyerConfirmed: Boolean</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="194.66701"
+       x="2007.5"
+       y="1248.7764"
+       id="text71">-isSellerConfirmed: Boolean</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2002.5"
+       x2="2315.626"
+       y1="1256.0781"
+       y2="1256.0781"
+       id="line71" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="303.12601"
+       x="2007.5"
+       y="1273.0732"
+       id="text72">+create(bk: Book, paymentMethod: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="151.96291"
+       x="2007.5"
+       y="1289.3701"
+       id="text73">+markAsCompleted()</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="144.4229"
+       x="2007.5"
+       y="1305.667"
+       id="text74">+markAsCancelled()</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Cart"
+     data-source-line="94"
+     id="ent0011">
+    <rect
+       fill="#f1f1f1"
+       height="113.1875"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="199.6602"
+       x="2370"
+       y="846.5"
+       id="rect74" />
+    <circle
+       cx="2450.7803"
+       cy="862.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse74"
+       r="11" />
+    <path
+       d="m 2453.749,868.1406 q -0.5781,0.2969 -1.2187,0.4375 -0.6407,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path74" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="29.5996"
+       x="2471.2803"
+       y="867.34668"
+       id="text75">Cart</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2371"
+       x2="2568.6602"
+       y1="878.5"
+       y2="878.5"
+       id="line75" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="181.01559"
+       x="2376"
+       y="895.49512"
+       id="text76">-booksInCart: List&lt;Book&gt;</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2371"
+       x2="2568.6602"
+       y1="902.79688"
+       y2="902.79688"
+       id="line76" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="144.8535"
+       x="2376"
+       y="919.79199"
+       id="text77">+addBook(bk: Book)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="187.6602"
+       x="2376"
+       y="936.08893"
+       id="text78">+removeBook(bookID: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="176.75"
+       x="2376"
+       y="952.38568"
+       id="text79">+getItems(): List&lt;Book&gt;</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="Message"
+     data-source-line="101"
+     id="ent0012">
+    <rect
+       fill="#f1f1f1"
+       height="145.7813"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="392.14651"
+       x="39"
+       y="254"
+       id="rect79" />
+    <circle
+       cx="200.1436"
+       cy="270"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse79"
+       r="11" />
+    <path
+       d="m 203.1123,275.6406 q -0.5781,0.2969 -1.2187,0.4375 -0.6407,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path79" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="61.359402"
+       x="220.6436"
+       y="274.84671"
+       id="text80">Message</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="40"
+       x2="430.14651"
+       y1="286"
+       y2="286"
+       id="line80" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="110.5371"
+       x="45"
+       y="302.99509"
+       id="text81">-messageID: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="95.655296"
+       x="45"
+       y="319.29199"
+       id="text82">-senderID: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="104.8428"
+       x="45"
+       y="335.5889"
+       id="text83">-receiverID: Int</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="109.6006"
+       x="45"
+       y="351.88571"
+       id="text84">-content: String</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="157.8896"
+       x="45"
+       y="368.18259"
+       id="text85">-timestamp: DateTime</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="40"
+       x2="430.14651"
+       y1="375.48441"
+       y2="375.48441"
+       id="line85" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="380.14651"
+       x="45"
+       y="392.47949"
+       id="text86">+create(senderID: Int, receiverID: Int, content: String)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="BookListingController"
+     data-source-line="111"
+     id="ent0013">
+    <rect
+       fill="#f1f1f1"
+       height="113.1875"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="747.4375"
+       x="1134.5"
+       y="270.5"
+       id="rect86" />
+    <circle
+       cx="1428.8999"
+       cy="286.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse86"
+       r="11" />
+    <path
+       d="m 1431.8687,292.1406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path86" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="150.1377"
+       x="1449.3999"
+       y="291.34671"
+       id="text87">BookListingController</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1135.5"
+       x2="1880.9375"
+       y1="302.5"
+       y2="302.5"
+       id="line87" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1135.5"
+       x2="1880.9375"
+       y1="310.5"
+       y2="310.5"
+       id="line88" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="735.4375"
+       x="1140.5"
+       y="327.49509"
+       id="text88">+addBook(ISBN: String, bookName: String, author: String, publisher: String, bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="384.99319"
+       x="1140.5"
+       y="343.79199"
+       id="text89">+updateBook(bookID: Int, bookCond: String, price: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="206.1514"
+       x="1140.5"
+       y="360.0889"
+       id="text90">+viewBookList(): List&lt;Book&gt;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="178.29491"
+       x="1140.5"
+       y="376.38571"
+       id="text91">+deleteBook(bookID: Int)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="CategoryController"
+     data-source-line="118"
+     id="ent0014">
+    <rect
+       fill="#f1f1f1"
+       height="113.1875"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="497.61819"
+       x="1917"
+       y="270.5"
+       id="rect91" />
+    <circle
+       cx="2094.9976"
+       cy="286.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse91"
+       r="11" />
+    <path
+       d="m 2097.9663,292.1406 q -0.5781,0.2969 -1.2187,0.4375 -0.6407,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path91" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="133.123"
+       x="2115.4976"
+       y="291.34671"
+       id="text92">CategoryController</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1918"
+       x2="2413.6182"
+       y1="302.5"
+       y2="302.5"
+       id="line92" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1918"
+       x2="2413.6182"
+       y1="310.5"
+       y2="310.5"
+       id="line93" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="285.47559"
+       x="1923"
+       y="327.49509"
+       id="text93">+createCategory(categoryName: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="398.4668"
+       x="1923"
+       y="343.79199"
+       id="text94">+editCategoryName(oldName: String, newName: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="284.83301"
+       x="1923"
+       y="360.0889"
+       id="text95">+deleteCategory(categoryName: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="485.61819"
+       x="1923"
+       y="376.38571"
+       id="text96">+assignBooksToCategory(categoryName: String, bookIDs: List&lt;Int&gt;)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="SearchController"
+     data-source-line="125"
+     id="ent0015">
+    <rect
+       fill="#f1f1f1"
+       height="80.593803"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="633.0791"
+       x="466.5"
+       y="286.5"
+       id="rect96" />
+    <circle
+       cx="720.00049"
+       cy="302.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse96"
+       r="11" />
+    <path
+       d="m 722.9692,308.1406 q -0.5781,0.2969 -1.2187,0.4375 -0.6406,0.1563 -1.3438,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7032,0 1.3438,0.1563 0.6562,0.1562 1.2187,0.4531 v 2.7187 q -0.625,-0.5781 -1.2187,-0.8437 -0.5938,-0.2813 -1.2188,-0.2813 -1.3437,0 -2.0312,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0312,1.0625 0.625,0 1.2188,-0.2656 0.5937,-0.2813 1.2187,-0.8594 z"
+       fill="#000000"
+       id="path96" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="117.5781"
+       x="740.50049"
+       y="307.34671"
+       id="text97">SearchController</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="467.5"
+       x2="1098.5791"
+       y1="318.5"
+       y2="318.5"
+       id="line97" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="467.5"
+       x2="1098.5791"
+       y1="326.5"
+       y2="326.5"
+       id="line98" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="621.0791"
+       x="472.5"
+       y="343.49509"
+       id="text98">+searchBook(keyword: String, location: String, minPrice: Int, maxPrice: Int): List&lt;Book&gt;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="258.97269"
+       x="472.5"
+       y="359.79199"
+       id="text99">+viewBookDetails(bookID: Int): Book</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="OrderController"
+     data-source-line="130"
+     id="ent0016">
+    <rect
+       fill="#f1f1f1"
+       height="96.890602"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="352.43649"
+       x="1983"
+       y="854.5"
+       id="rect99" />
+    <circle
+       cx="2100.3662"
+       cy="870.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse99"
+       r="11" />
+    <path
+       d="m 2103.335,876.1406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path99" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="109.2041"
+       x="2120.8662"
+       y="875.34668"
+       id="text100">OrderController</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1984"
+       x2="2334.4365"
+       y1="886.5"
+       y2="886.5"
+       id="line100" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="1984"
+       x2="2334.4365"
+       y1="894.5"
+       y2="894.5"
+       id="line101" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="340.43649"
+       x="1989"
+       y="911.49512"
+       id="text101">+checkOut(bookID: Int, paymentMethod: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="333.32031"
+       x="1989"
+       y="927.79199"
+       id="text102">+completeTransaction(orderID: Int, role: Roles)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="313.27731"
+       x="1989"
+       y="944.08893"
+       id="text103">+cancelTransaction(orderID: Int, role: Roles)</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="CartController"
+     data-source-line="136"
+     id="ent0017">
+    <rect
+       fill="#f1f1f1"
+       height="96.890602"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="196.68649"
+       x="2371.5"
+       y="574.5"
+       id="rect103" />
+    <circle
+       cx="2416.207"
+       cy="590.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse103"
+       r="11" />
+    <path
+       d="m 2419.1758,596.1406 q -0.5781,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8281,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3281,-1.6563 3.8281,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path103" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="98.772499"
+       x="2436.707"
+       y="595.34668"
+       id="text104">CartController</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2372.5"
+       x2="2567.1865"
+       y1="606.5"
+       y2="606.5"
+       id="line104" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="2372.5"
+       x2="2567.1865"
+       y1="614.5"
+       y2="614.5"
+       id="line105" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="157.56841"
+       x="2377.5"
+       y="631.49512"
+       id="text105">+addItem(bookID: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="184.68649"
+       x="2377.5"
+       y="647.79199"
+       id="text106">+removeItem(bookID: Int)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="123.2588"
+       x="2377.5"
+       y="664.08893"
+       id="text107">+viewCart(): Cart</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="MessageController"
+     data-source-line="142"
+     id="ent0018">
+    <rect
+       fill="#f1f1f1"
+       height="80.593803"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="456.16501"
+       x="7"
+       y="19"
+       id="rect107" />
+    <circle
+       cx="165.56641"
+       cy="35"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse107"
+       r="11" />
+    <path
+       d="m 168.5352,40.6406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path107" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="130.5322"
+       x="186.06641"
+       y="39.846699"
+       id="text108">MessageController</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="8"
+       x2="462.16501"
+       y1="51"
+       y2="51"
+       id="line108" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="8"
+       x2="462.16501"
+       y1="59"
+       y2="59"
+       id="line109" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="430.4248"
+       x="13"
+       y="75.995102"
+       id="text109">+sendMessage(senderID: Int, receiverID: Int, content: String)</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="444.16501"
+       x="13"
+       y="92.292"
+       id="text110">+viewChatHistory(userA_ID: Int, userB_ID: Int): List&lt;Message&gt;</text>
+  </g>
+  <g
+     class="entity"
+     data-qualified-name="BookRepository"
+     data-source-line="147"
+     id="ent0019">
+    <rect
+       fill="#f1f1f1"
+       height="80.593803"
+       rx="2.5"
+       ry="2.5"
+       style="stroke:#181818;stroke-width:0.5"
+       width="620.13867"
+       x="511"
+       y="582.5"
+       id="rect110" />
+    <circle
+       cx="761.86182"
+       cy="598.5"
+       fill="#add1b2"
+       style="stroke:#181818;stroke-width:1"
+       id="ellipse110"
+       r="11" />
+    <path
+       d="m 764.8306,604.1406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+       fill="#000000"
+       id="path110" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="109.915"
+       x="782.36182"
+       y="603.34668"
+       id="text111">BookRepository</text>
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="512"
+       x2="1130.1387"
+       y1="614.5"
+       y2="614.5"
+       id="line111" />
+    <line
+       style="stroke:#181818;stroke-width:0.5"
+       x1="512"
+       x2="1130.1387"
+       y1="622.5"
+       y2="622.5"
+       id="line112" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="608.13867"
+       x="517"
+       y="639.49512"
+       id="text112">+findBooks(keyword: String, location: String, minPrice: Int, maxPrice: Int): List&lt;Book&gt;</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="14px"
+       lengthAdjust="spacing"
+       textLength="214.88091"
+       x="517"
+       y="655.79199"
+       id="text113">+getDetails(bookID: Int): Book</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0005"
+     data-entity-2="ent0006"
+     data-link-type="dependency"
+     data-source-line="153"
+     id="lnk20">
+    <path
+       codeLine="153"
+       d="m 2450.41,460.04 c -6.17,1.7 -12.31,3.35 -18.41,4.96 -47.95,12.61 -263.0202,51.3735 -470.3802,87.7435"
+       fill="none"
+       id="User-to-Shop"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="1955.71,553.78 1965.2657,556.165 1960.6348,552.9162 1963.8836,548.2853 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon113" />
+    <polygon
+       fill="#000000"
+       points="2275.4266,499.9252 2267.0876,504.4981 2276.5219,505.7001 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon114" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="51.638199"
+       x="2281"
+       y="508.06689"
+       id="text114">Manage</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="2434.7385"
+       y="459.65671"
+       id="text115">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="24.806601"
+       x="1963.9792"
+       y="549.28912"
+       id="text116">0..1</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0005"
+     data-entity-2="ent0011"
+     data-link-type="dependency"
+     data-source-line="154"
+     id="lnk21">
+    <path
+       codeLine="154"
+       d="M 2739.43,465.12 C 2664.27,587 2561.3496,753.8831 2507.4596,841.2631"
+       fill="none"
+       id="User-to-Cart"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="2504.31,846.37 2512.4389,840.8094 2506.9346,842.1143 2505.6298,836.61 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon116" />
+    <polygon
+       fill="#000000"
+       points="2692.6218,618.0807 2690.3754,627.3222 2697.6248,621.1661 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon117" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="35.876999"
+       x="2702"
+       y="627.56689"
+       id="text117">Owns</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="2726.5818"
+       y="485.14981"
+       id="text118">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="2500.0413"
+       y="835.61768"
+       id="text119">1</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0005"
+     data-entity-2="ent0010"
+     data-link-type="dependency"
+     data-source-line="155"
+     id="lnk22">
+    <path
+       codeLine="155"
+       d="M 2814.74,465.19 C 2796.71,622.42 2743.58,877.37 2587,1025 c -75.17,70.87 -176.4447,114.4554 -264.6547,142.1054"
+       fill="none"
+       id="User-to-Order"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="2316.62,1168.9 2326.4044,1170.0249 2321.3911,1167.4045 2324.0116,1162.3912 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon119" />
+    <polygon
+       fill="#000000"
+       points="2760.9171,737.5671 2758.1286,746.6597 2765.729,740.9427 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon120" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="50.254398"
+       x="2770"
+       y="747.06689"
+       id="text120">Creates</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="2806.0103"
+       y="485.22369"
+       id="text121">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="23.035601"
+       x="2324.8096"
+       y="1163.7379"
+       id="text122">0..*</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0012"
+     data-entity-2="ent0005"
+     data-link-type="dependency"
+     data-source-line="156"
+     id="lnk24">
+    <path
+       codeLine="156"
+       d="M 328.8407,250.4725 C 365.3207,224.8625 404.5,202.57 449,189 c 210.75,-64.28 1766.18,-39.2 1983,0 6.12,1.11 12.28,2.3 18.46,3.56"
+       fill="none"
+       id="Message-backto-User"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="323.93,253.92 333.5944,252.0226 328.0223,251.0471 328.9978,245.475 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon122" />
+    <polygon
+       fill="#000000"
+       points="1390.4634,147.5182 1381.5019,150.7028 1390.6238,153.3939 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon123" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="102.1465"
+       x="1395.5"
+       y="155.06689"
+       id="text123">Sends/Receives</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="23.035601"
+       x="308.9093"
+       y="242.69521"
+       id="text124">0..*</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="2434.7896"
+       y="186.7435"
+       id="text125">1</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0006"
+     data-entity-2="ent0007"
+     data-link-type="dependency"
+     data-source-line="158"
+     id="lnk25">
+    <path
+       codeLine="158"
+       d="m 1628.66,704.04 c 20.27,23.98 39.0973,46.2472 61.0773,72.2572"
+       fill="none"
+       id="Shop-to-Book"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="1693.61,780.88 1690.8561,771.424 1690.3827,777.061 1684.7457,776.5876 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon125" />
+    <polygon
+       fill="#000000"
+       points="1665.1442,741.3743 1673.2278,746.385 1669.6332,737.5799 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon126" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="22.7246"
+       x="1679"
+       y="747.06689"
+       id="text126">List</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="1626.5399"
+       y="724.27173"
+       id="text127">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="6.5"
+       x="1681.2014"
+       y="770.06561"
+       id="text128">*</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0006"
+     data-entity-2="ent0009"
+     data-link-type="dependency"
+     data-source-line="159"
+     id="lnk26">
+    <path
+       codeLine="159"
+       d="m 1955.68,623 c 35.38,0 63.1,0 93.11,0"
+       fill="none"
+       id="Shop-to-Category"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="2054.79,623 2045.79,619 2049.79,623 2045.79,627 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon128" />
+    <polygon
+       fill="#000000"
+       points="1973.7049,614.5053 1982.75,611.5664 1973.7049,608.6275 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon129" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="50.184601"
+       x="1986.75"
+       y="616.06689"
+       id="text129">Contain</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="1963.7806"
+       y="619.9151"
+       id="text130">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="6.5"
+       x="2040.3112"
+       y="619.57111"
+       id="text131">*</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0009"
+     data-entity-2="ent0007"
+     data-link-type="dependency"
+     data-source-line="161"
+     id="lnk27">
+    <path
+       codeLine="161"
+       d="m 2142.49,671.6 c -22.03,26.62 -52.38,58.53 -85.49,79.4 -36.38,22.93 -53.62,10.59 -92,30 -5.8,2.93 -6.3774,3.114 -12.1874,6.374"
+       fill="none"
+       id="Category-to-Book"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="1947.58,790.31 1957.3862,789.3944 1951.9405,787.8633 1953.4715,782.4176 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon131" />
+    <polygon
+       fill="#000000"
+       points="2087.9216,737.9504 2081.7322,745.1714 2090.9839,742.9675 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon132" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="70.122597"
+       x="2095"
+       y="747.06689"
+       id="text132">Categorize</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="2128.9197"
+       y="691.573"
+       id="text133">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="6.5"
+       x="1955.562"
+       y="781.19427"
+       id="text134">*</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0007"
+     data-entity-2="ent0008"
+     data-link-type="dependency"
+     data-source-line="163"
+     id="lnk28">
+    <path
+       codeLine="163"
+       d="m 1714.2,1025.3 c -22.94,34.02 -43.9548,65.1758 -64.8448,96.1458"
+       fill="none"
+       id="Book-to-BookInfo"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="1646,1126.42 1654.3489,1121.1955 1648.796,1122.2748 1647.7167,1116.7219 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon134" />
+    <polygon
+       fill="#000000"
+       points="1698.8253,1058.5695 1696.2042,1067.7117 1703.6984,1061.8561 "
+       style="stroke:#000000;stroke-width:1"
+       id="polygon135" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="57.1353"
+       x="1708"
+       y="1068.0669"
+       id="text135">Describe</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="1701.5138"
+       y="1044.481"
+       id="text136">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="1642.6442"
+       y="1115.3234"
+       id="text137">1</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0007"
+     data-entity-2="ent0011"
+     data-link-type="dependency"
+     data-source-line="164"
+     id="lnk29">
+    <path
+       codeLine="164"
+       d="m 1927.6827,777.8337 c 13.58,-8.4 22.6973,-12.4837 37.3173,-17.8337 40.05,-14.67 305.89,-16.75 387,21 30.99,14.42 58.12,40.83 78.53,65.39"
+       fill="none"
+       id="Book-backto-Cart"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="1922.58,780.99 1932.3383,779.6573 1926.8323,778.3597 1928.1299,772.8537 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon137" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="82.976601"
+       x="1966"
+       y="747.06689"
+       id="text138">Contained-in</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="6.5"
+       x="1924.5111"
+       y="769.77838"
+       id="text139">*</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="23.035601"
+       x="2401.0234"
+       y="835.23932"
+       id="text140">0..*</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0007"
+     data-entity-2="ent0010"
+     data-link-type="dependency"
+     data-source-line="165"
+     id="lnk30">
+    <path
+       codeLine="165"
+       d="m 1945.8998,1028.9205 c 30.5,25.41 57.8002,48.1595 87.5002,72.9095"
+       fill="none"
+       id="Book-backto-Order"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="1941.29,1025.08 1945.6444,1033.914 1945.1315,1028.2804 1950.7651,1027.7676 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon140" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="82.976601"
+       x="1990"
+       y="1068.0669"
+       id="text141">Contained-in</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="8.2709999"
+       x="1941.4646"
+       y="1044.6547"
+       id="text142">1</text>
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="24.806601"
+       x="1999.7489"
+       y="1090.9454"
+       id="text143">0..1</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0013"
+     data-entity-2="ent0006"
+     data-link-type="dependency"
+     data-source-line="167"
+     id="lnk31">
+    <path
+       codeLine="167"
+       d="m 1518.03,383.64 c 8.06,44.7 18.4147,102.1653 27.4647,152.3253"
+       fill="none"
+       id="BookListingController-to-Shop"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="1546.56,541.87 1548.8984,532.3028 1545.6722,536.9494 1541.0256,533.7232 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon143" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0014"
+     data-entity-2="ent0009"
+     data-link-type="dependency"
+     data-source-line="168"
+     id="lnk32">
+    <path
+       codeLine="168"
+       d="m 2168.27,383.64 c 2.25,55.11 5.4151,132.585 7.5451,184.725"
+       fill="none"
+       id="CategoryController-to-Category"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="2176.06,574.36 2179.6893,565.2042 2175.8559,569.3642 2171.696,565.5308 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon144" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0015"
+     data-entity-2="ent0019"
+     data-link-type="dependency"
+     data-source-line="169"
+     id="lnk33">
+    <path
+       codeLine="169"
+       d="m 788.12,367.65 c 7.26,56.11 19.6713,152.1594 26.9413,208.4394"
+       fill="none"
+       id="SearchController-to-BookRepository"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="815.83,582.04 818.644,572.6017 815.1894,577.0812 810.71,573.6266 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon145" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0016"
+     data-entity-2="ent0010"
+     data-link-type="dependency"
+     data-source-line="170"
+     id="lnk34">
+    <path
+       codeLine="170"
+       d="m 2159,951.6 c 0,40.18 0,93.17 0,144.28"
+       fill="none"
+       id="OrderController-to-Order"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="2159,1101.88 2163,1092.88 2159,1096.88 2155,1092.88 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon146" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0017"
+     data-entity-2="ent0011"
+     data-link-type="dependency"
+     data-source-line="171"
+     id="lnk35">
+    <path
+       codeLine="171"
+       d="m 2470,671.79 c 0,48.44 0,117.33 0,168.44"
+       fill="none"
+       id="CartController-to-Cart"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="2470,846.23 2474,837.23 2470,841.23 2466,837.23 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon147" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0018"
+     data-entity-2="ent0012"
+     data-link-type="dependency"
+     data-source-line="172"
+     id="lnk36">
+    <path
+       codeLine="172"
+       d="m 235,100.25 c 0,40.5 0,98.22 0,147.65"
+       fill="none"
+       id="MessageController-to-Message"
+       style="stroke:#181818;stroke-width:1" />
+    <polygon
+       fill="#181818"
+       points="235,253.9 239,244.9 235,248.9 231,244.9 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon148" />
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0019"
+     data-entity-2="ent0007"
+     data-link-type="dependency"
+     data-source-line="174"
+     id="lnk37">
+    <path
+       codeLine="174"
+       d="m 959.66,663.54 c 181.12,51.64 491.37,140.0948 678.76,193.5248"
+       fill="none"
+       id="BookRepository-to-Book"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7" />
+    <polygon
+       fill="#181818"
+       points="1644.19,858.71 1636.6317,852.3955 1639.3816,857.339 1634.4381,860.0889 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon149" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="48.216801"
+       x="1252"
+       y="747.06689"
+       id="text149">queries</text>
+  </g>
+  <g
+     class="link"
+     data-entity-1="ent0019"
+     data-entity-2="ent0008"
+     data-link-type="dependency"
+     data-source-line="175"
+     id="lnk38">
+    <path
+       codeLine="175"
+       d="m 873.39,663.58 c 125.4,94.74 440.0527,332.4631 607.5927,459.0431"
+       fill="none"
+       id="BookRepository-to-BookInfo"
+       style="stroke:#181818;stroke-width:1;stroke-dasharray:7, 7" />
+    <polygon
+       fill="#181818"
+       points="1485.77,1126.24 1481.0003,1117.6231 1481.7806,1123.2259 1476.1778,1124.0062 "
+       style="stroke:#181818;stroke-width:1"
+       id="polygon150" />
+    <text
+       fill="#000000"
+       font-family="sans-serif"
+       font-size="13px"
+       lengthAdjust="spacing"
+       textLength="48.216801"
+       x="1347"
+       y="907.56689"
+       id="text150">queries</text>
+  </g>
+</svg>
