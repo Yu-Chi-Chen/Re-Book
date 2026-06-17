@@ -71,13 +71,27 @@ export default function SearchResult() {
     navigate(`/search?q=${encodeURIComponent(query)}`);
   };
 
-  // 新增：處理加入購物車的邏輯 (需傳入該書的 bookId)
+  // 處理加入購物車的邏輯 (需傳入該書的 bookId)
   const handleAddToCart = async (bookId: string) => {
+    // 1. 先從 localStorage 抓取真實的使用者 ID
+    const storedUser = localStorage.getItem('currentUser');
+    
+    if (!storedUser) {
+      alert("請先登入才能將書籍加入購物車喔！");
+      // 如果你想直接導向登入頁，可以解開下方的註解：
+      // navigate('/login'); 
+      return;
+    }
+
+    const user = JSON.parse(storedUser);
+    const userId = user.id; // 注意：若你的 MongoDB 預設是 _id，請改為 user._id
+
+    // 2. 發送帶有真實 userId 的 API 請求
     try {
       const response = await fetch(`http://localhost:8080/api/cart/add/${bookId}`, {
         method: 'POST',
         headers: {
-          'userId': '6a14011da1c94bd5d428e232' // FIXME: 暫時用假 ID，之後替換
+          'userId': userId // 🔥 這裡替換成動態抓取的真實 ID
         }
       });
       
